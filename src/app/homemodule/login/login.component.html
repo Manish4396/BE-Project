@@ -31,9 +31,9 @@
 
         </ul>
         <div *ngIf="f.submitted">
-          <span *ngIf="f.submitted && !username.valid && !password.valid">Please Enter User Name & Password </span>
-          <span *ngIf="f.submitted && username.valid &&  !password.valid">Please Enter Password </span>
-          <span *ngIf="f.submitted && !username.valid && password.valid">Please Enter User Name </span>
+          <span class="error-in" *ngIf="f.submitted && !username.valid && !password.valid">Please Enter User Name & Password </span>
+          <span class="error-in" *ngIf="f.submitted && username.valid &&  !password.valid">Please Enter Password </span>
+          <span class="error-in" *ngIf="f.submitted && !username.valid && password.valid">Please Enter User Name </span>
         </div>
         <input type="submit"  value="Login">
       </form>

@@ -9,7 +9,7 @@
           <p>Fill the form below and submit your query we will contact you as soon as possible.</p>
         </div>
         <div class="agile-form">
-          <form #f="ngForm"  (ngSubmit)="f.form.valid && login()" novalidate>
+          <form #f="ngForm"  (ngSubmit)="f.form.valid && appointmentsave()"  novalidate>
             <ul class="field-list">
               <li>
                 <label class="form-label"> 
@@ -17,8 +17,9 @@
                   <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="text" name="patient_name" [(ngModel)]="appointment.patient_Name" placeholder="Enter Patients Name" maxlength="15" autocomplete="off" required >
+                  <input type="text" name="patientname" #patientname="ngModel" [(ngModel)]="appointment.patient_Name" placeholder="Enter Patients Name" maxlength="15" autocomplete="off" required >
                 </div>
+                <span class="error-in" *ngIf="f.submitted && !patientname.valid ">Please Enter Name </span>
               </li>
               <li>
                 <label class="form-label">
@@ -26,12 +27,10 @@
                    <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <select class="form-dropdown" name="gender" required>
-                    <option value="">&nbsp;</option>
-                    <option value="Male"> Male </option>
-                    <option value="Female"> Female </option>
-                    <option value="Transgender"> Transgender </option>
+                  <select class="form-dropdown" name="gender" [(ngModel)]="appointment.gender" #gender="ngModel"  required>
+                    <option *ngFor="let c of gen" [(ngValue)]="c.id">{{c.name}}</option>
                   </select>
+                  <span class="error-in" *ngIf="f.submitted && !gender.valid ">Please Select Gender </span>
                 </div>
               </li>
               <li> 
@@ -40,8 +39,9 @@
                    <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="int" name="age" [(ngModel)]="appointment.age" placeholder="Age in Years" maxlength="2" autocomplete="off" required >
+                  <input type="int" name="age" #age="ngModel" pattern="[0-9]" [(ngModel)]="appointment.age" placeholder="Age in Years" maxlength="2" autocomplete="off" required >
                 </div>
+                <span class="error-in" *ngIf="f.submitted && !age.valid ">Please Enter Proper Age (Only digits) </span>
               </li>
               
               <li> 
@@ -67,9 +67,11 @@
                     <label class="form-sub-label1"> State / Province </label>
                   </span>
                   <span class="form-sub-label">
-                    <input type="text" name="zipcode" [(ngModel)]="appointment.zipcode" placeholder=" " maxlength="6" autocomplete="off" required>
+                    <input type="text" name="zipcode" #zipcode="ngModel" pattern="[0-9]{06}" [(ngModel)]="appointment.zipcode" placeholder=" " maxlength="6" autocomplete="off" required>
                     <label class="form-sub-label1"> Postal / Zip Code </label>
+                    <div class="error-in" *ngIf="f.submitted && !zipcode.valid ">Please Enter Proper Zipcode (Only 6 digits) </div>
                   </span>
+                  
                   <span class="form-sub-label">
                     <input type="text" name="country" [(ngModel)]="appointment.country" placeholder=" " maxlength="20" autocomplete="off" required>
                     <label class="form-sub-label1"> Country </label>
@@ -82,7 +84,10 @@
                    <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="email" name="email" [(ngModel)]="appointment.email" placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
+                  <input type="email" name="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,3})" [(ngModel)]="appointment.email" placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
+                </div>
+                <div>
+                    <span class="error-in" *ngIf="f.submitted && !email.valid ">Please Enter Proper Email ID (abc@gmail.com) </span>
                 </div>
               </li>
               <li> 
@@ -90,7 +95,7 @@
                   Mention the details of previous consultings with us.
                 </label>
                 <div class="form-input2">
-                  <textarea rows="5" cols="20" name="textarea" [(ngModel)]="appointment.textarea" maxlength="200" autocomplete="off" required></textarea>
+                  <textarea rows="5" cols="20" name="textarea"  [(ngModel)]="appointment.textarea" maxlength="200" autocomplete="off" required></textarea>
                 
                 </div>
               </li>
@@ -100,24 +105,16 @@
                    <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <select class="form-dropdown" name="speciality"  required>
-                   <option value="">&nbsp;</option>
-                    <option value="General Physician"> General Physician </option>
-                    <option value="Cardiologist"> Cardiologist </option>
-                    <option value="Dermatologist"> Dermatologist </option>
-                    <option value="Gynaecologist"> Gynaecologist </option>
-                    <option value="Neurologist"> Neurologist </option>
-                    <option value="Oncologist"> Oncologist </option>
-                    <option value="Opthalmologist"> Opthalmologist </option>
-                    <option value="ENT"> ENT </option>
-                    <option value="Psychiatrist"> Psychiatrist </option>
-                    <option value="Urologist"> Urologist </option>
-                  
+                  <select class="form-dropdown" name="speciality1" #speciality1="ngModel" [(ngModel)]="appointment.speciality"  required>
+                    <option *ngFor="let c of speciality" [(ngValue)]="c.id">{{c.name}}</option>
                   </select>
+                  <div *ngIf="f.submitted">
+                      <span class="error-in" *ngIf="f.submitted && !speciality1.valid ">Please Select Speciality </span>
+                  </div>
                 </div>
               </li>
           </ul>
-            <input type="submit" (click)="appointmentsave()" value="Book Appointment">
+            <input type="submit" value="Book Appointment">
           </form>	
         </div>
       </div>

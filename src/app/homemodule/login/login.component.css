@@ -7,3 +7,7 @@ input[type="password"] {
     width: 99%;
     color: #0f0e10;
 }
+
+.error-in{
+    color:red;
+}

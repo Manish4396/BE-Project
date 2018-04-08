@@ -1,0 +1,35 @@
+div.main2 {
+    border: 3px solid #146eb4;
+    margin: 50px 300px 50px 300px;
+    width: 900px;
+    height: 200px;
+    
+
+}
+div.left{
+    width: 500px;
+    padding: 20px 0px 0px 50px;
+    float: left;
+}
+
+.left h3{
+
+    color: #ff9900;
+    font-weight: 600;
+	letter-spacing: 1px;
+
+}
+div.right{
+    width: 300px;
+    padding: 50px 20px 0px 50px;
+    float: right;
+}
+
+ p{
+    
+    font-size: 15px;
+    color: black;
+    font-weight: 600;
+    letter-spacing: 1px;
+    
+}

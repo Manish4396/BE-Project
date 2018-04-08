@@ -1,0 +1,87 @@
+<!--//banner -->
+<div class="w3ls-banner">
+    <div class="container_1">
+      <div class="heading">
+        <h2>Chat with a Doctor</h2>
+         </div>
+      <div class="agile-form">
+        <form action="http://localhost:5300/payment " >
+          <ul class="field-list">
+              <li> 
+                  <label class="form-label1">
+                    Explain your Problem in Detail
+                    <span class="form-required"> * </span>
+                  </label>
+                  
+                  <div class="form-input2">
+                    <textarea rows="5" cols="20" name="textarea" [(ngModel)]="chat.textarea" maxlength="300" autocomplete="off" required></textarea>
+                  
+                  </div>
+                </li>
+               
+            <li>
+              <label class="form-label"> 
+                Full Name 
+                <span class="form-required"> * </span>
+              </label>
+              <div class="form-input">
+                <input type="text" name="patient_name" [(ngModel)]="chat.patient_name" placeholder="Enter Patients Name" maxlength="100" autocomplete="off" required >
+              </div>
+            </li>
+            <li> 
+              <label class="form-label">
+                Age
+                 <span class="form-required"> * </span>
+              </label>
+              <div class="form-input">
+                <input type="int" name="age" [(ngModel)]="chat.age" placeholder="Age in Years" maxlength="2" autocomplete="off" required >
+              </div>
+            </li>
+            
+            <li> 
+                <label class="form-label">
+                   E-Mail Address
+                   <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                  <input type="email" name="email" [(ngModel)]="chat.email"  placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
+                </div>
+              </li>
+              
+            <li> 
+              <label class="form-label">
+                 Mobile Number
+                 <span class="form-required"> * </span>
+              </label>
+              <div class="form-input">
+                <input type="int" name="mobile_number" [(ngModel)]="chat.mobile_number" placeholder="Mobile Number" maxlength="10" autocomplete="off" required >
+              </div>
+            </li>
+             <li>
+                <label class="form-label">
+                   Choose a relevant Speciality
+                   <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                  <select class="form-dropdown" name="speciality" [(ngModel)]="chat.speciality"  required>
+                   <option value="">&nbsp;</option>
+                    <option value="General Physician"> General Physician </option>
+                    <option value="Cardiologist"> Cardiologist </option>
+                    <option value="Dermatologist"> Dermatologist </option>
+                    <option value="Gynaecologist"> Gynaecologist </option>
+                    <option value="Neurologist"> Neurologist </option>
+                    <option value="Oncologist"> Oncologist </option>
+                    <option value="Opthalmologist"> Opthalmologist </option>
+                    <option value="ENT"> ENT </option>
+                    <option value="Psychiatrist"> Psychiatrist </option>
+                    <option value="Urologist"> Urologist </option>
+                  
+                  </select>
+                </div>
+              </li>
+              </ul>
+          <input type="submit" (click)="chatsave()" value="Continue" >
+        </form>	
+      </div>
+    </div>
+</div>

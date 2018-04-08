@@ -1,0 +1,7 @@
+input[type="int"] {
+    padding: 7px;
+    background-color: rgba(216, 216, 216, 0.63);
+    border: 0;
+    width: 99%;
+    color: #0f0e10;
+}

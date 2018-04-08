@@ -13,6 +13,12 @@ import { ChatComponent } from './chat/chat.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ArticleComponent } from './article/article.component';
 import { ResponseComponent } from './response/response.component';
+import { AfterloginComponent } from './afterlogin/afterlogin.component';
+import { DregistrationComponent } from './dregistration/dregistration.component';
+import { DloginComponent } from './dlogin/dlogin.component';
+
+
+
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -28,6 +34,10 @@ import { FormsModule } from '@angular/forms';
         PaymentComponent,
         ArticleComponent,
         ResponseComponent,
+        AfterloginComponent,
+        DregistrationComponent,
+        DloginComponent,
+        
     ],
     imports: [
         CommonModule,

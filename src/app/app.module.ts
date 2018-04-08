@@ -16,7 +16,7 @@ import { FooterModuleComponent } from './footer-module/footer-module.component';
     // HomemoduleComponent,
     HeaderModuleComponent,
     FooterModuleComponent,
-   
+    
     // LoginComponent,
     ],
   imports: [

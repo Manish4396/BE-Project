@@ -1,0 +1,42 @@
+<div class="w3ls-banner">
+    <div class="heading">
+      <h1>Login</h1>
+    </div>
+    <div class="container_1">
+      <div class="heading">
+        <h2>Please Enter Login Details</h2>
+      </div>
+      <div class="agile-form">
+        <form name="form" #f="ngForm"  (ngSubmit)="f.form.valid && login()" novalidate>
+          <ul class="field-list">
+  
+            <li>
+              <label class="form-label">
+                User Name
+                <span class="form-required"> * </span>
+              </label>
+              <div class="form-input">
+                <input type="text" name="dusername" #dusername="ngModel" [(ngModel)]="doctor.dusername" placeholder="Enter User Name" maxlength="15" autocomplete="off" required>
+              </div>
+            </li>
+            <li>
+              <label class="form-label">
+                Password
+                <span class="form-required"> * </span>
+              </label>
+              <div class="form-input">
+                <input type="password" name="dpassword" #dpassword="ngModel" [(ngModel)]="doctor.dpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter Password" maxlength="20" autocomplete="off" required>
+              </div>
+            </li>
+  
+          </ul>
+          <div *ngIf="f.submitted">
+            <span *ngIf="f.submitted && !dusername.valid && !dpassword.valid">Please Enter User Name & Password </span>
+            <span *ngIf="f.submitted && dusername.valid &&  !dpassword.valid">Please Enter Password </span>
+            <span *ngIf="f.submitted && !dusername.valid && dpassword.valid">Please Enter User Name </span>
+          </div>
+          <input type="submit"  value="Login">
+        </form>
+      </div>
+    </div>
+  </div>

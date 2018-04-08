@@ -1,0 +1,414 @@
+Doctors Registration
+	<!--//banner -->
+	<div class="w3ls-banner">
+    <div class="heading">
+      <h1>Doctor's Registration</h1>
+    </div>
+      <div class="container_1">
+        <div class="heading">
+          <h2>Personal Details</h2>
+          <p></p>
+        </div>
+        <div class="agile-form">
+          <form action="/" method="post">
+            <ul class="field-list">
+              <li>
+                <label class="form-label"> 
+                  Full Name 
+                  <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                  <input type="text" name="dname" [(ngModel)]="doctor.dname" placeholder="Enter Your Name" maxlength="100" autocomplete="off" required >
+                </div>
+              </li>
+              <li>
+                <label class="form-label">
+                   Gender
+                   <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                  <select class="form-dropdown" name="dgender" required>
+                    <option value="">&nbsp;</option>
+                    <option value="Male"> Male </option>
+                    <option value="Female"> Female </option>
+                    <option value="Transgender"> Transgender </option>
+                  </select>
+                </div>
+              <li>
+              <li> 
+                <label class="form-label">
+                   Mobile Number
+                   <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                  <input type="int" [(ngModel)]="doctor.dmobile_number" name="dmobile_number" placeholder="Mobile Number" maxlength="10" autocomplete="off" required >
+                </div>
+              </li>
+              <li> 
+                <label class="form-label">
+                   Age
+                   <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                  <input type="int" [(ngModel)]="doctor.dage" name="dage" placeholder="Age in Years" maxlength="2" autocomplete="off" required >
+                </div>
+              </li>
+              
+              <li> 
+                <label class="form-label">
+                   E-Mail
+                   <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                  <input type="email" name="demail" [(ngModel)]="doctor.demail" placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
+                </div>
+              </li>
+              <li> 
+                <label class="form-label">
+                  Username
+                   <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                  <input type="text" name="dusername" [(ngModel)]="doctor.dusername" placeholder="Enter Username" maxlength="15" autocomplete="off" required>
+                </div>
+              </li>
+              <li> 
+                <label class="form-label">
+                   Password
+                   <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                  <input type="password" name="dpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" [(ngModel)]="doctor.dpassword" placeholder="Enter Password" maxlength="20" autocomplete="off" required>
+                </div>
+              </li>
+              <li> 
+                <label class="form-label">
+                  Re-Type Password
+                   <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                  <input type="password" name="drepassword" [(ngModel)]="doctor.drepassword" placeholder="Re-Type Password" maxlength="20" autocomplete="off" required>
+                </div>
+              </li>
+              <li>
+                  <label class="form-label"> 
+                    City 
+                    <span class="form-required"> * </span>
+                  </label>
+                  <div class="form-input">
+                    <input type="text" name="dcity" [(ngModel)]="doctor.dcity" placeholder="Enter Your City" maxlength="100" autocomplete="off" required >
+                  </div>
+                </li>
+                <hr>
+                <div class="heading">
+                    <h2>Educational Qualification</h2>
+                    <p></p>
+                  </div>
+                  <li>
+                      <label class="form-label"> 
+                        Degree 
+                        <span class="form-required"> * </span>
+                      </label>
+                      <div class="form-input">
+                        <input type="text" name="degree" [(ngModel)]="doctor.degree" placeholder="" maxlength="10" autocomplete="off" required >
+                      </div>
+                    </li>
+                    <li>
+                        <label class="form-label"> 
+                          College
+                          <span class="form-required"> * </span>
+                        </label>
+                        <div class="form-input">
+                          <input type="text" name="college" [(ngModel)]="doctor.college" placeholder="" maxlength="10" autocomplete="off" required >
+                        </div>
+                      </li>
+                      <li>
+                          <label class="form-label"> 
+                            Year of Completion
+                            <span class="form-required"> * </span>
+                          </label>
+                          <div class="form-input">
+                            <input type="int" name="yoc" [(ngModel)]="doctor.yoc" placeholder="" maxlength="4" autocomplete="off" required >
+                          </div>
+                        </li>
+                        <li>
+                            <label class="form-label"> 
+                              Experience in Years
+                              <span class="form-required"> * </span>
+                            </label>
+                            <div class="form-input">
+                              <input type="int" name="experience" [(ngModel)]="doctor.experience" placeholder="" maxlength="2" autocomplete="off" required >
+                            </div>
+                          </li>
+                          <hr>
+                          <div class="heading">
+                              <h2>Availability</h2>
+                              <p></p>
+                            </div>
+                            <div class="agile-form">
+                                <form action="/" method="post">
+                                    <fieldset data-role="controlgroup" data-type="horizontal">
+                                    <label for="red">Monday</label>
+                                    <input type="checkbox" name="favcolor" [(ngModel)]="doctor.favcolor" id="red" value="red">
+                                    <label for="green">Tuesday</label>
+                                    <input type="checkbox" name="favcolor1" [(ngModel)]="doctor.favcolor1" id="green" value="green">
+                                    <label for="blue">Wednesday</label>
+                                    <input type="checkbox" name="favcolor2" [(ngModel)]="doctor.favcolor2" id="blue" value="blue">
+                                    <label for="blue">Thursday</label>
+                                    <input type="checkbox" name="favcolor3" [(ngModel)]="doctor.favcolor3" id="yellow" value="blue">
+                                    <label for="blue">Friday</label>
+                                    <input type="checkbox" name="favcolor4" [(ngModel)]="doctor.favcolor4" id="pink" value="blue">
+                                    <label for="blue">Saturday</label>
+                                    <input type="checkbox" name="favcolor5" [(ngModel)]="doctor.favcolor5" id="orange" value="blue">
+                                    <label for="blue">Sunday</label>
+                                    <input type="checkbox" name="favcolor6" [(ngModel)]="doctor.favcolor6" id="white" value="blue">
+                                </fieldset>
+                                  <ul class="field-list">
+                                      <li>
+                                      <div class="form-input dob">
+                                        <span class="form-sub-label">
+                                          <select name="time1" [(ngModel)]="doctor.time1"  class="time">
+                                            <option>&nbsp;</option>
+                                            <option value="1"> 9:00am </option>
+                                            <option value="2"> 9:15am </option>
+                                            <option value="3"> 9:30am </option>
+                                            <option value="4"> 9:45am </option>
+                                            <option value="5"> 10:00am </option>
+                                            <option value="6"> 10:15am </option>
+                                            <option value="7"> 10:30am </option>
+                                            <option value="8"> 10:45am </option>
+                                            <option value="9"> 11:00am </option>
+                                            <option value="10"> 11:15am </option>
+                                            <option value="11"> 11:30am </option>
+                                            <option value="12"> 11:45am </option>
+                                            <option value="13"> 12:00pm </option>
+                                            <option value="14"> 12:15pm </option>
+                                            <option value="15"> 12:30pm </option>
+                                            <option value="16"> 12:45pm </option>
+                                            <option value="17"> 1:00pm </option>
+                                            <option value="18"> 1:15pm </option>
+                                            <option value="19"> 1:30pm </option>
+                                            <option value="20"> 1:45pm </option>
+                                            <option value="21"> 2:00pm </option>
+                                            <option value="22"> 2:15pm </option>
+                                            <option value="23"> 2:30pm </option>
+                                            <option value="24"> 2:45pm </option>
+                                            <option value="25"> 3:00pm </option>
+                                            <option value="26"> 3:15pm </option>
+                                            <option value="27"> 3:30pm </option>
+                                            <option value="28"> 3:45pm </option>
+                                            <option value="29"> 4:00pm </option>
+                                            <option value="30"> 4:15pm </option>
+                                            <option value="31"> 4:30pm </option>
+                                            <option value="22"> 4:45pm </option>
+                                            <option value="23"> 5:00pm </option>
+                                            <option value="24"> 5:15pm </option>
+                                            <option value="25"> 5:30pm </option>
+                                            <option value="26"> 5:45pm </option>
+                                            <option value="27"> 6:00pm </option>
+                                            <option value="28"> 6:15pm </option>
+                                            <option value="29"> 6:30pm </option>
+                                            <option value="30"> 6:45pm </option>
+                                            <option value="31"> 7:00pm </option>
+                                            <option value="25"> 7:15pm </option>
+                                            <option value="26"> 7:30pm </option>
+                                            <option value="27"> 7:45pm </option>
+                                            <option value="28"> 8:00pm </option>
+                                            <option value="29"> 8:15pm </option>
+                                            <option value="30"> 8:30pm </option>
+                                            <option value="31"> 8:45pm </option>
+                                            <option value="31"> 9:00pm </option>
+                                          </select>
+                                        </span>
+                                        <span>from</span>
+                                        <span class="form-sub-label">
+                                          <select name="time2" [(ngModel)]="doctor.time2" class="time">
+                                            <option>&nbsp;</option>
+                                            <option value="1"> 9:00am </option>
+                                            <option value="2"> 9:15am </option>
+                                            <option value="3"> 9:30am </option>
+                                            <option value="4"> 9:45am </option>
+                                            <option value="5"> 10:00am </option>
+                                            <option value="6"> 10:15am </option>
+                                            <option value="7"> 10:30am </option>
+                                            <option value="8"> 10:45am </option>
+                                            <option value="9"> 11:00am </option>
+                                            <option value="10"> 11:15am </option>
+                                            <option value="11"> 11:30am </option>
+                                            <option value="12"> 11:45am </option>
+                                            <option value="13"> 12:00pm </option>
+                                            <option value="14"> 12:15pm </option>
+                                            <option value="15"> 12:30pm </option>
+                                            <option value="16"> 12:45pm </option>
+                                            <option value="17"> 1:00pm </option>
+                                            <option value="18"> 1:15pm </option>
+                                            <option value="19"> 1:30pm </option>
+                                            <option value="20"> 1:45pm </option>
+                                            <option value="21"> 2:00pm </option>
+                                            <option value="22"> 2:15pm </option>
+                                            <option value="23"> 2:30pm </option>
+                                            <option value="24"> 2:45pm </option>
+                                            <option value="25"> 3:00pm </option>
+                                            <option value="26"> 3:15pm </option>
+                                            <option value="27"> 3:30pm </option>
+                                            <option value="28"> 3:45pm </option>
+                                            <option value="29"> 4:00pm </option>
+                                            <option value="30"> 4:15pm </option>
+                                            <option value="31"> 4:30pm </option>
+                                            <option value="22"> 4:45pm </option>
+                                            <option value="23"> 5:00pm </option>
+                                            <option value="24"> 5:15pm </option>
+                                            <option value="25"> 5:30pm </option>
+                                            <option value="26"> 5:45pm </option>
+                                            <option value="27"> 6:00pm </option>
+                                            <option value="28"> 6:15pm </option>
+                                            <option value="29"> 6:30pm </option>
+                                            <option value="30"> 6:45pm </option>
+                                            <option value="31"> 7:00pm </option>
+                                            <option value="25"> 7:15pm </option>
+                                            <option value="26"> 7:30pm </option>
+                                            <option value="27"> 7:45pm </option>
+                                            <option value="28"> 8:00pm </option>
+                                            <option value="29"> 8:15pm </option>
+                                            <option value="30"> 8:30pm </option>
+                                            <option value="31"> 8:45pm </option>
+                                            <option value="31"> 9:00pm </option>
+                                           </select>
+                                        </span> 
+                                        
+                                         
+                                      </div>
+                                      
+                                      
+                                      
+                                      
+                                    </li>
+                                    
+                                    
+                                    <li>
+                                    <h4> Timing for other days as per availability </h4>
+                                    <br>
+                                    <div class="form-input dob">
+                                        <span class="form-sub-label">
+                                          <select name="time3" [(ngModel)]="doctor.time3" class="time">
+                                            <option>&nbsp;</option>
+                                            <option value="1"> 9:00am </option>
+                                            <option value="2"> 9:15am </option>
+                                            <option value="3"> 9:30am </option>
+                                            <option value="4"> 9:45am </option>
+                                            <option value="5"> 10:00am </option>
+                                            <option value="6"> 10:15am </option>
+                                            <option value="7"> 10:30am </option>
+                                            <option value="8"> 10:45am </option>
+                                            <option value="9"> 11:00am </option>
+                                            <option value="10"> 11:15am </option>
+                                            <option value="11"> 11:30am </option>
+                                            <option value="12"> 11:45am </option>
+                                            <option value="13"> 12:00pm </option>
+                                            <option value="14"> 12:15pm </option>
+                                            <option value="15"> 12:30pm </option>
+                                            <option value="16"> 12:45pm </option>
+                                            <option value="17"> 1:00pm </option>
+                                            <option value="18"> 1:15pm </option>
+                                            <option value="19"> 1:30pm </option>
+                                            <option value="20"> 1:45pm </option>
+                                            <option value="21"> 2:00pm </option>
+                                            <option value="22"> 2:15pm </option>
+                                            <option value="23"> 2:30pm </option>
+                                            <option value="24"> 2:45pm </option>
+                                            <option value="25"> 3:00pm </option>
+                                            <option value="26"> 3:15pm </option>
+                                            <option value="27"> 3:30pm </option>
+                                            <option value="28"> 3:45pm </option>
+                                            <option value="29"> 4:00pm </option>
+                                            <option value="30"> 4:15pm </option>
+                                            <option value="31"> 4:30pm </option>
+                                            <option value="22"> 4:45pm </option>
+                                            <option value="23"> 5:00pm </option>
+                                            <option value="24"> 5:15pm </option>
+                                            <option value="25"> 5:30pm </option>
+                                            <option value="26"> 5:45pm </option>
+                                            <option value="27"> 6:00pm </option>
+                                            <option value="28"> 6:15pm </option>
+                                            <option value="29"> 6:30pm </option>
+                                            <option value="30"> 6:45pm </option>
+                                            <option value="31"> 7:00pm </option>
+                                            <option value="25"> 7:15pm </option>
+                                            <option value="26"> 7:30pm </option>
+                                            <option value="27"> 7:45pm </option>
+                                            <option value="28"> 8:00pm </option>
+                                            <option value="29"> 8:15pm </option>
+                                            <option value="30"> 8:30pm </option>
+                                            <option value="31"> 8:45pm </option>
+                                            <option value="31"> 9:00pm </option>
+                                          </select>
+                                        </span>
+                                        <span>from</span>
+                                        <span class="form-sub-label">
+                                          <select name="time4" [(ngModel)]="doctor.time4" class="time">
+                                            <option>&nbsp;</option>
+                                            <option value="1"> 9:00am </option>
+                                            <option value="2"> 9:15am </option>
+                                            <option value="3"> 9:30am </option>
+                                            <option value="4"> 9:45am </option>
+                                            <option value="5"> 10:00am </option>
+                                            <option value="6"> 10:15am </option>
+                                            <option value="7"> 10:30am </option>
+                                            <option value="8"> 10:45am </option>
+                                            <option value="9"> 11:00am </option>
+                                            <option value="10"> 11:15am </option>
+                                            <option value="11"> 11:30am </option>
+                                            <option value="12"> 11:45am </option>
+                                            <option value="13"> 12:00pm </option>
+                                            <option value="14"> 12:15pm </option>
+                                            <option value="15"> 12:30pm </option>
+                                            <option value="16"> 12:45pm </option>
+                                            <option value="17"> 1:00pm </option>
+                                            <option value="18"> 1:15pm </option>
+                                            <option value="19"> 1:30pm </option>
+                                            <option value="20"> 1:45pm </option>
+                                            <option value="21"> 2:00pm </option>
+                                            <option value="22"> 2:15pm </option>
+                                            <option value="23"> 2:30pm </option>
+                                            <option value="24"> 2:45pm </option>
+                                            <option value="25"> 3:00pm </option>
+                                            <option value="26"> 3:15pm </option>
+                                            <option value="27"> 3:30pm </option>
+                                            <option value="28"> 3:45pm </option>
+                                            <option value="29"> 4:00pm </option>
+                                            <option value="30"> 4:15pm </option>
+                                            <option value="31"> 4:30pm </option>
+                                            <option value="22"> 4:45pm </option>
+                                            <option value="23"> 5:00pm </option>
+                                            <option value="24"> 5:15pm </option>
+                                            <option value="25"> 5:30pm </option>
+                                            <option value="26"> 5:45pm </option>
+                                            <option value="27"> 6:00pm </option>
+                                            <option value="28"> 6:15pm </option>
+                                            <option value="29"> 6:30pm </option>
+                                            <option value="30"> 6:45pm </option>
+                                            <option value="31"> 7:00pm </option>
+                                            <option value="25"> 7:15pm </option>
+                                            <option value="26"> 7:30pm </option>
+                                            <option value="27"> 7:45pm </option>
+                                            <option value="28"> 8:00pm </option>
+                                            <option value="29"> 8:15pm </option>
+                                            <option value="30"> 8:30pm </option>
+                                            <option value="31"> 8:45pm </option>
+                                            <option value="31"> 9:00pm </option>
+                                           </select>
+                                        </span> <br>
+                                      </div>
+                                    </li>
+                                    
+                                    
+                                  </ul>
+                                  
+                                </form>	
+                              </div>
+                        </ul>
+            <input type="submit" (click)="register()" value="Register">
+          </form>	
+        </div>
+      </div>
+  </div>

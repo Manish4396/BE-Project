@@ -11,6 +11,10 @@ import { ChatComponent } from './chat/chat.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ArticleComponent } from './article/article.component';
 import { ResponseComponent } from './response/response.component';
+import { AfterloginComponent } from './afterlogin/afterlogin.component';
+import { DregistrationComponent } from './dregistration/dregistration.component';
+import { DloginComponent } from './dlogin/dlogin.component';
+
 
 
 
@@ -25,7 +29,11 @@ const routes:Routes=[
 {path:'chat',component:ChatComponent},
 {path:'payment',component:PaymentComponent},
 {path:'article',component:ArticleComponent},
-{path:'response',component:ResponseComponent}
+{path:'response',component:ResponseComponent},
+{path:'afterlogin',component:AfterloginComponent},
+{path:'dregistration',component:DregistrationComponent},
+{path:'dlogin',component:DloginComponent},
+
 ]
 
 export const routing=RouterModule.forChild(routes);

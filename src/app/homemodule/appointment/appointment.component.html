@@ -9,7 +9,7 @@
           <p>Fill the form below and submit your query we will contact you as soon as possible.</p>
         </div>
         <div class="agile-form">
-          <form action="/" method="post">
+          <form #f="ngForm"  (ngSubmit)="f.form.valid && login()" novalidate>
             <ul class="field-list">
               <li>
                 <label class="form-label"> 

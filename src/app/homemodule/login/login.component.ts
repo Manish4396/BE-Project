@@ -12,7 +12,10 @@ import { SharedServiceService } from '../../SharedService/shared-service.service
 })
 export class LoginComponent implements OnInit {
   islogin: any;
-  msg: any
+  msg: any;
+  passeye:any;
+
+  inputpassword="password";
   public user = {
     User_Name: "",
     Password: ""
@@ -21,6 +24,17 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+  passwordshowhide(value) {
+    if (value == "hidepass") {
+      this.passeye = !this.passeye;
+      if (this.inputpassword == "text") {
+        this.inputpassword = "password";
+      }
+      else {
+        this.inputpassword = "text";
+      }
+    }
   }
 
   login() {

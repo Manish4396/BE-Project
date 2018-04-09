@@ -11,3 +11,29 @@ input[type="password"] {
 .error-in{
     color:red;
 }
+.eye{
+    width: 16px;
+    padding-right:350px;
+    cursor:pointer;
+    padding-bottom:10px;
+  }
+  .login-form-ar .login-form-bx .input-icon-eye {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    margin-bottom: 0;
+  }
+  .input-container .input-icon-eye {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    margin-bottom: 0;
+  }
+  .input-icon-eye {
+    position: absolute;
+      margin-left:600px;
+      margin-bottom: 0;
+      top: 400px;
+  }
+  
+  

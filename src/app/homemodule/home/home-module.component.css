@@ -166,4 +166,16 @@ input {
 
 .lt-ie9 .search input { line-height: 26px }
 
+.container h2{
+    text-align: center;
+    font-size: 75px;
+    color: #ff9900;
+    letter-spacing: 2px;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px dotted #968e8e;
+
+    
+}
+
 

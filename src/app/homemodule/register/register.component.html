@@ -10,7 +10,7 @@ Register
           <p></p>
         </div>
         <div class="agile-form">
-          <form action="/" method="post">
+          <form #f="ngForm"  (ngSubmit)="f.form.valid && register()"  novalidate>
             <ul class="field-list">
               <li>
                 <label class="form-label"> 
@@ -18,8 +18,9 @@ Register
                   <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="text" name="patient_name" [(ngModel)]="userregister.patient_name" placeholder="Enter Patients Name" maxlength="100" autocomplete="off" required >
+                  <input type="text" name="patient_name" #patient_name="ngModel" [(ngModel)]="userregister.patient_name" placeholder="Enter Patients Name" maxlength="100" autocomplete="off" required >
                 </div>
+                <span class="error-in" *ngIf="f.submitted && !patient_name.valid ">Please Enter Name </span>
               </li>
               <li>
                 <label class="form-label">
@@ -27,12 +28,10 @@ Register
                    <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <select class="form-dropdown" name="gender" required>
-                    <option value="">&nbsp;</option>
-                    <option value="Male"> Male </option>
-                    <option value="Female"> Female </option>
-                    <option value="Transgender"> Transgender </option>
+                  <select class="form-dropdown" name="gender" [(ngModel)]="userregister.gender" #gender="ngModel" required>
+                    <option *ngFor="let c of gen" [(ngValue)]="c.id">{{c.name}}</option>
                   </select>
+                  <span class="error-in" *ngIf="f.submitted && !gender.valid ">Please Select Gender </span>
                 </div>
               <li>
               <li> 
@@ -41,8 +40,10 @@ Register
                    <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="int" [(ngModel)]="userregister.mobile_number" name="mobile_number" placeholder="Mobile Number" maxlength="10" autocomplete="off" required >
+                  <input type="int" name="mobile_number" #mobile_number="ngModel" pattern="[0-9]" [(ngModel)]="userregister.mobile_number"  placeholder="Mobile Number" maxlength="10" autocomplete="off" required >
                 </div>
+                <span class="error-in" *ngIf="f.submitted && !mobile_number.valid ">Please Enter Proper Number (Only digits) </span>
+              
               </li>
               <li> 
                 <label class="form-label">
@@ -50,8 +51,10 @@ Register
                    <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="int" [(ngModel)]="userregister.age" name="age" placeholder="Age in Years" maxlength="2" autocomplete="off" required >
+                  <input type="int"  name="age" #age="ngModel" pattern="[0-9]" [(ngModel)]="userregister.age"  placeholder="Age in Years" maxlength="2" autocomplete="off" required >
                 </div>
+                <span class="error-in" *ngIf="f.submitted && !age.valid ">Please Enter Proper Age (Only digits) </span>
+              
               </li>
               
               <li> 
@@ -60,8 +63,12 @@ Register
                    <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="email" name="email" [(ngModel)]="userregister.email" placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
+                  <input type="email" name="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,3})" [(ngModel)]="userregister.email" placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
                 </div>
+                <div>
+                  <span class="error-in" *ngIf="f.submitted && !email.valid ">Please Enter Proper Email ID (abc@gmail.com) </span>
+              </div>
+            
               </li>
               <li> 
                 <label class="form-label">

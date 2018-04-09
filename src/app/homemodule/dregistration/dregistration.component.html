@@ -10,7 +10,7 @@ Doctors Registration
           <p></p>
         </div>
         <div class="agile-form">
-          <form action="/" method="post">
+          <form #f="ngForm"  (ngSubmit)="f.form.valid && register()"  novalidate>
             <ul class="field-list">
               <li>
                 <label class="form-label"> 
@@ -18,8 +18,10 @@ Doctors Registration
                   <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="text" name="dname" [(ngModel)]="doctor.dname" placeholder="Enter Your Name" maxlength="100" autocomplete="off" required >
+                  <input type="text" name="dname" #dname="ngModel" [(ngModel)]="doctor.dname" placeholder="Enter Your Name" maxlength="100" autocomplete="off" required >
                 </div>
+                <span class="error-in" *ngIf="f.submitted && !dname.valid ">Please Enter Name </span>
+              
               </li>
               <li>
                 <label class="form-label">
@@ -27,12 +29,11 @@ Doctors Registration
                    <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <select class="form-dropdown" name="dgender" required>
-                    <option value="">&nbsp;</option>
-                    <option value="Male"> Male </option>
-                    <option value="Female"> Female </option>
-                    <option value="Transgender"> Transgender </option>
+                  <select class="form-dropdown" name="gender" [(ngModel)]="doctor.gender" #gender="ngModel"  required>
+                    <option *ngFor="let c of gen" [(ngValue)]="c.id">{{c.name}}</option>
                   </select>
+                  <span class="error-in" *ngIf="f.submitted && !gender.valid ">Please Select Gender </span>
+                
                 </div>
               <li>
               <li> 
@@ -41,8 +42,10 @@ Doctors Registration
                    <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="int" [(ngModel)]="doctor.dmobile_number" name="dmobile_number" placeholder="Mobile Number" maxlength="10" autocomplete="off" required >
+                  <input type="int" name="dmobile_number" #dmobile_number="ngModel" pattern="[0-9]" [(ngModel)]="doctor.dmobile_number"  placeholder="Mobile Number" maxlength="10" autocomplete="off" required >
                 </div>
+                <span class="error-in" *ngIf="f.submitted && !dmobile_number.valid ">Please Enter Proper Number (Only digits) </span>
+              
               </li>
               <li> 
                 <label class="form-label">
@@ -50,8 +53,10 @@ Doctors Registration
                    <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="int" [(ngModel)]="doctor.dage" name="dage" placeholder="Age in Years" maxlength="2" autocomplete="off" required >
+                  <input type="int" name="age" #age="ngModel" pattern="[0-9]" [(ngModel)]="doctor.age" placeholder="Age in Years" maxlength="2" autocomplete="off" required >
                 </div>
+                <span class="error-in" *ngIf="f.submitted && !age.valid ">Please Enter Proper Age (Only digits) </span>
+              
               </li>
               
               <li> 
@@ -60,8 +65,11 @@ Doctors Registration
                    <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="email" name="demail" [(ngModel)]="doctor.demail" placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
-                </div>
+                
+                <input type="email" name="demail" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,3})" [(ngModel)]="doctor.demail" placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
+                 </div>
+                 <span class="error-in" *ngIf="f.submitted && !demail.valid ">Please Enter Proper Email ID (abc@gmail.com) </span>
+                
               </li>
               <li> 
                 <label class="form-label">
@@ -128,8 +136,10 @@ Doctors Registration
                             <span class="form-required"> * </span>
                           </label>
                           <div class="form-input">
-                            <input type="int" name="yoc" [(ngModel)]="doctor.yoc" placeholder="" maxlength="4" autocomplete="off" required >
+                            <input type="int" name="yoc" #yoc="ngModel" pattern="[0-9]" [(ngModel)]="doctor.yoc" placeholder="" maxlength="4" autocomplete="off" required >
                           </div>
+                          <span class="error-in" *ngIf="f.submitted && !yoc.valid ">Please Enter Proper Year (Only digits) </span>
+              
                         </li>
                         <li>
                             <label class="form-label"> 
@@ -137,8 +147,10 @@ Doctors Registration
                               <span class="form-required"> * </span>
                             </label>
                             <div class="form-input">
-                              <input type="int" name="experience" [(ngModel)]="doctor.experience" placeholder="" maxlength="2" autocomplete="off" required >
+                              <input type="int" name="experience" #experience="ngModel" pattern="[0-9]" [(ngModel)]="doctor.experience" placeholder="" maxlength="2" autocomplete="off" required >
                             </div>
+                            <span class="error-in" *ngIf="f.submitted && !experience.valid ">Please Enter Proper Number (Only digits) </span>
+              
                           </li>
                           <hr>
                           <div class="heading">
@@ -169,111 +181,37 @@ Doctors Registration
                                         <span class="form-sub-label">
                                           <select name="time1" [(ngModel)]="doctor.time1"  class="time">
                                             <option>&nbsp;</option>
-                                            <option value="1"> 9:00am </option>
-                                            <option value="2"> 9:15am </option>
-                                            <option value="3"> 9:30am </option>
-                                            <option value="4"> 9:45am </option>
-                                            <option value="5"> 10:00am </option>
-                                            <option value="6"> 10:15am </option>
-                                            <option value="7"> 10:30am </option>
-                                            <option value="8"> 10:45am </option>
-                                            <option value="9"> 11:00am </option>
-                                            <option value="10"> 11:15am </option>
-                                            <option value="11"> 11:30am </option>
-                                            <option value="12"> 11:45am </option>
-                                            <option value="13"> 12:00pm </option>
-                                            <option value="14"> 12:15pm </option>
-                                            <option value="15"> 12:30pm </option>
-                                            <option value="16"> 12:45pm </option>
-                                            <option value="17"> 1:00pm </option>
-                                            <option value="18"> 1:15pm </option>
-                                            <option value="19"> 1:30pm </option>
-                                            <option value="20"> 1:45pm </option>
-                                            <option value="21"> 2:00pm </option>
-                                            <option value="22"> 2:15pm </option>
-                                            <option value="23"> 2:30pm </option>
-                                            <option value="24"> 2:45pm </option>
-                                            <option value="25"> 3:00pm </option>
-                                            <option value="26"> 3:15pm </option>
-                                            <option value="27"> 3:30pm </option>
-                                            <option value="28"> 3:45pm </option>
-                                            <option value="29"> 4:00pm </option>
-                                            <option value="30"> 4:15pm </option>
-                                            <option value="31"> 4:30pm </option>
-                                            <option value="22"> 4:45pm </option>
-                                            <option value="23"> 5:00pm </option>
-                                            <option value="24"> 5:15pm </option>
-                                            <option value="25"> 5:30pm </option>
-                                            <option value="26"> 5:45pm </option>
-                                            <option value="27"> 6:00pm </option>
-                                            <option value="28"> 6:15pm </option>
-                                            <option value="29"> 6:30pm </option>
-                                            <option value="30"> 6:45pm </option>
-                                            <option value="31"> 7:00pm </option>
-                                            <option value="25"> 7:15pm </option>
-                                            <option value="26"> 7:30pm </option>
-                                            <option value="27"> 7:45pm </option>
-                                            <option value="28"> 8:00pm </option>
-                                            <option value="29"> 8:15pm </option>
-                                            <option value="30"> 8:30pm </option>
-                                            <option value="31"> 8:45pm </option>
-                                            <option value="31"> 9:00pm </option>
-                                          </select>
+                                            <option value="9"> 9:00am </option>
+                                            <option value="10"> 10:00am </option>
+                                            <option value="11"> 11:00am </option>
+                                            <option value="12"> 12:00pm </option>
+                                            <option value="1"> 1:00pm </option>
+                                            <option value="2"> 2:00pm </option>
+                                            <option value="3"> 3:00pm </option>
+                                            <option value="4"> 4:00pm </option>
+                                            <option value="5"> 5:00pm </option>
+                                            <option value="6"> 6:00pm </option>
+                                            <option value="7"> 7:00pm </option>
+                                            <option value="8"> 8:00pm </option>
+                                            </select>
                                         </span>
                                         <span>from</span>
                                         <span class="form-sub-label">
                                           <select name="time2" [(ngModel)]="doctor.time2" class="time">
                                             <option>&nbsp;</option>
-                                            <option value="1"> 9:00am </option>
-                                            <option value="2"> 9:15am </option>
-                                            <option value="3"> 9:30am </option>
-                                            <option value="4"> 9:45am </option>
-                                            <option value="5"> 10:00am </option>
-                                            <option value="6"> 10:15am </option>
-                                            <option value="7"> 10:30am </option>
-                                            <option value="8"> 10:45am </option>
-                                            <option value="9"> 11:00am </option>
-                                            <option value="10"> 11:15am </option>
-                                            <option value="11"> 11:30am </option>
-                                            <option value="12"> 11:45am </option>
-                                            <option value="13"> 12:00pm </option>
-                                            <option value="14"> 12:15pm </option>
-                                            <option value="15"> 12:30pm </option>
-                                            <option value="16"> 12:45pm </option>
-                                            <option value="17"> 1:00pm </option>
-                                            <option value="18"> 1:15pm </option>
-                                            <option value="19"> 1:30pm </option>
-                                            <option value="20"> 1:45pm </option>
-                                            <option value="21"> 2:00pm </option>
-                                            <option value="22"> 2:15pm </option>
-                                            <option value="23"> 2:30pm </option>
-                                            <option value="24"> 2:45pm </option>
-                                            <option value="25"> 3:00pm </option>
-                                            <option value="26"> 3:15pm </option>
-                                            <option value="27"> 3:30pm </option>
-                                            <option value="28"> 3:45pm </option>
-                                            <option value="29"> 4:00pm </option>
-                                            <option value="30"> 4:15pm </option>
-                                            <option value="31"> 4:30pm </option>
-                                            <option value="22"> 4:45pm </option>
-                                            <option value="23"> 5:00pm </option>
-                                            <option value="24"> 5:15pm </option>
-                                            <option value="25"> 5:30pm </option>
-                                            <option value="26"> 5:45pm </option>
-                                            <option value="27"> 6:00pm </option>
-                                            <option value="28"> 6:15pm </option>
-                                            <option value="29"> 6:30pm </option>
-                                            <option value="30"> 6:45pm </option>
-                                            <option value="31"> 7:00pm </option>
-                                            <option value="25"> 7:15pm </option>
-                                            <option value="26"> 7:30pm </option>
-                                            <option value="27"> 7:45pm </option>
-                                            <option value="28"> 8:00pm </option>
-                                            <option value="29"> 8:15pm </option>
-                                            <option value="30"> 8:30pm </option>
-                                            <option value="31"> 8:45pm </option>
-                                            <option value="31"> 9:00pm </option>
-                                           </select>
+                                            <option value="9"> 9:00am </option>
+                                            <option value="10"> 10:00am </option>
+                                            <option value="11"> 11:00am </option>
+                                            <option value="12"> 12:00pm </option>
+                                            <option value="1"> 1:00pm </option>
+                                            <option value="2"> 2:00pm </option>
+                                            <option value="3"> 3:00pm </option>
+                                            <option value="4"> 4:00pm </option>
+                                            <option value="5"> 5:00pm </option>
+                                            <option value="6"> 6:00pm </option>
+                                            <option value="7"> 7:00pm </option>
+                                            <option value="8"> 8:00pm </option>
+                                            </select>
                                         </span> 
                                         
                                          
@@ -292,111 +230,37 @@ Doctors Registration
                                         <span class="form-sub-label">
                                           <select name="time3" [(ngModel)]="doctor.time3" class="time">
                                             <option>&nbsp;</option>
-                                            <option value="1"> 9:00am </option>
-                                            <option value="2"> 9:15am </option>
-                                            <option value="3"> 9:30am </option>
-                                            <option value="4"> 9:45am </option>
-                                            <option value="5"> 10:00am </option>
-                                            <option value="6"> 10:15am </option>
-                                            <option value="7"> 10:30am </option>
-                                            <option value="8"> 10:45am </option>
-                                            <option value="9"> 11:00am </option>
-                                            <option value="10"> 11:15am </option>
-                                            <option value="11"> 11:30am </option>
-                                            <option value="12"> 11:45am </option>
-                                            <option value="13"> 12:00pm </option>
-                                            <option value="14"> 12:15pm </option>
-                                            <option value="15"> 12:30pm </option>
-                                            <option value="16"> 12:45pm </option>
-                                            <option value="17"> 1:00pm </option>
-                                            <option value="18"> 1:15pm </option>
-                                            <option value="19"> 1:30pm </option>
-                                            <option value="20"> 1:45pm </option>
-                                            <option value="21"> 2:00pm </option>
-                                            <option value="22"> 2:15pm </option>
-                                            <option value="23"> 2:30pm </option>
-                                            <option value="24"> 2:45pm </option>
-                                            <option value="25"> 3:00pm </option>
-                                            <option value="26"> 3:15pm </option>
-                                            <option value="27"> 3:30pm </option>
-                                            <option value="28"> 3:45pm </option>
-                                            <option value="29"> 4:00pm </option>
-                                            <option value="30"> 4:15pm </option>
-                                            <option value="31"> 4:30pm </option>
-                                            <option value="22"> 4:45pm </option>
-                                            <option value="23"> 5:00pm </option>
-                                            <option value="24"> 5:15pm </option>
-                                            <option value="25"> 5:30pm </option>
-                                            <option value="26"> 5:45pm </option>
-                                            <option value="27"> 6:00pm </option>
-                                            <option value="28"> 6:15pm </option>
-                                            <option value="29"> 6:30pm </option>
-                                            <option value="30"> 6:45pm </option>
-                                            <option value="31"> 7:00pm </option>
-                                            <option value="25"> 7:15pm </option>
-                                            <option value="26"> 7:30pm </option>
-                                            <option value="27"> 7:45pm </option>
-                                            <option value="28"> 8:00pm </option>
-                                            <option value="29"> 8:15pm </option>
-                                            <option value="30"> 8:30pm </option>
-                                            <option value="31"> 8:45pm </option>
-                                            <option value="31"> 9:00pm </option>
-                                          </select>
+                                            <option value="9"> 9:00am </option>
+                                            <option value="10"> 10:00am </option>
+                                            <option value="11"> 11:00am </option>
+                                            <option value="12"> 12:00pm </option>
+                                            <option value="1"> 1:00pm </option>
+                                            <option value="2"> 2:00pm </option>
+                                            <option value="3"> 3:00pm </option>
+                                            <option value="4"> 4:00pm </option>
+                                            <option value="5"> 5:00pm </option>
+                                            <option value="6"> 6:00pm </option>
+                                            <option value="7"> 7:00pm </option>
+                                            <option value="8"> 8:00pm </option>
+                                            </select>
                                         </span>
                                         <span>from</span>
                                         <span class="form-sub-label">
                                           <select name="time4" [(ngModel)]="doctor.time4" class="time">
                                             <option>&nbsp;</option>
-                                            <option value="1"> 9:00am </option>
-                                            <option value="2"> 9:15am </option>
-                                            <option value="3"> 9:30am </option>
-                                            <option value="4"> 9:45am </option>
-                                            <option value="5"> 10:00am </option>
-                                            <option value="6"> 10:15am </option>
-                                            <option value="7"> 10:30am </option>
-                                            <option value="8"> 10:45am </option>
-                                            <option value="9"> 11:00am </option>
-                                            <option value="10"> 11:15am </option>
-                                            <option value="11"> 11:30am </option>
-                                            <option value="12"> 11:45am </option>
-                                            <option value="13"> 12:00pm </option>
-                                            <option value="14"> 12:15pm </option>
-                                            <option value="15"> 12:30pm </option>
-                                            <option value="16"> 12:45pm </option>
-                                            <option value="17"> 1:00pm </option>
-                                            <option value="18"> 1:15pm </option>
-                                            <option value="19"> 1:30pm </option>
-                                            <option value="20"> 1:45pm </option>
-                                            <option value="21"> 2:00pm </option>
-                                            <option value="22"> 2:15pm </option>
-                                            <option value="23"> 2:30pm </option>
-                                            <option value="24"> 2:45pm </option>
-                                            <option value="25"> 3:00pm </option>
-                                            <option value="26"> 3:15pm </option>
-                                            <option value="27"> 3:30pm </option>
-                                            <option value="28"> 3:45pm </option>
-                                            <option value="29"> 4:00pm </option>
-                                            <option value="30"> 4:15pm </option>
-                                            <option value="31"> 4:30pm </option>
-                                            <option value="22"> 4:45pm </option>
-                                            <option value="23"> 5:00pm </option>
-                                            <option value="24"> 5:15pm </option>
-                                            <option value="25"> 5:30pm </option>
-                                            <option value="26"> 5:45pm </option>
-                                            <option value="27"> 6:00pm </option>
-                                            <option value="28"> 6:15pm </option>
-                                            <option value="29"> 6:30pm </option>
-                                            <option value="30"> 6:45pm </option>
-                                            <option value="31"> 7:00pm </option>
-                                            <option value="25"> 7:15pm </option>
-                                            <option value="26"> 7:30pm </option>
-                                            <option value="27"> 7:45pm </option>
-                                            <option value="28"> 8:00pm </option>
-                                            <option value="29"> 8:15pm </option>
-                                            <option value="30"> 8:30pm </option>
-                                            <option value="31"> 8:45pm </option>
-                                            <option value="31"> 9:00pm </option>
-                                           </select>
+                                            <option value="9"> 9:00am </option>
+                                            <option value="10"> 10:00am </option>
+                                            <option value="11"> 11:00am </option>
+                                            <option value="12"> 12:00pm </option>
+                                            <option value="1"> 1:00pm </option>
+                                            <option value="2"> 2:00pm </option>
+                                            <option value="3"> 3:00pm </option>
+                                            <option value="4"> 4:00pm </option>
+                                            <option value="5"> 5:00pm </option>
+                                            <option value="6"> 6:00pm </option>
+                                            <option value="7"> 7:00pm </option>
+                                            <option value="8"> 8:00pm </option>
+                                            </select>
                                         </span> <br>
                                       </div>
                                     </li>

@@ -734,8 +734,9 @@ h4.agileinfo-head {
     background: rgba(0, 0, 0, 0.47);
 	padding: 5em 0;
 }
-.emergency_cases_w3ls h4 {
-    font-size: 30px;
+.emergency_cases_w3ls h1,h4 {
+	text-align: center;
+    font-size: 50px;
     color: #ff9900;
     letter-spacing: 2px;
     text-align: left;

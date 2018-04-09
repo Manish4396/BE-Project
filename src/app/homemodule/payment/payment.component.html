@@ -80,11 +80,15 @@ Payment
                      Expiration
                      <span class="form-required"> * </span>
                   </label>
-                  <div class="form-input">
+                  <div class="form-input1">
                   
-                    <input type="int" [(ngModel)]="payment.expiration" name="expiration" placeholder="" maxlength="16" autocomplete="off" required >
+                    <input type="int" [(ngModel)]="payment.expiration" name="expiration" placeholder="MM" maxlength="2" autocomplete="off" required >
                    </div>
-          
+                   <div class="form-input2">
+                  
+                      <input type="int" [(ngModel)]="payment.expiration1" name="expiration1" placeholder="YYYY" maxlength="4" autocomplete="off" required >
+                     </div>
+            
                 </li>
                      
                     <li> 

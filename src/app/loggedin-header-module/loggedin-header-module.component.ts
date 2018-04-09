@@ -11,7 +11,7 @@ import { SharedServiceService} from '../SharedService/shared-service.service';
 export class LoggedinHeaderModuleComponent implements OnInit {
   currentUser:any;
   login:any;
-  constructor(private router: Router,public _sharedService: SharedServiceService) { }
+  constructor(private router: Router,public sharedService: SharedServiceService) { }
   
   ngOnInit() {
    
@@ -23,8 +23,8 @@ export class LoggedinHeaderModuleComponent implements OnInit {
   {
     // this.currentUser = this._sharedService.currentuser;
     // this.login = this._sharedService.login;
-    this._sharedService.currentuser=JSON.parse(localStorage.getItem('loginuser'));
-    this._sharedService.login=JSON.parse(localStorage.getItem('login'));
+    this.sharedService.currentuser=JSON.parse(localStorage.getItem('loginuser'));
+    this.sharedService.login=JSON.parse(localStorage.getItem('login'));
   }
   logout(){
     localStorage.removeItem('loginuser');

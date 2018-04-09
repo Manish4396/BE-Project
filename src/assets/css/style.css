@@ -664,16 +664,21 @@ a.wthree-.about-link {
 }
 .agileits-about-grid1 {
 	/*background: url(../images/a1.jpg) no-repeat;*/
+	
    border: 1px solid white; 
+
    background-color : #2C3E50;
 }
 .agileits-about-grid2 {
-    border: 1px solid white; 
+
+	border: 1px solid white; 
+	
     border-left: white;
     border-right:white;
     background: #2C3E50;
 }
 .agileits-about-grid3 {
+	
     border: 1px solid white; 
     background: #2C3E50;
 }

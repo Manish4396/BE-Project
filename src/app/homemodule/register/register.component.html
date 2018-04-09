@@ -97,16 +97,17 @@
               <input type="password" name="repassword" #repassword="ngModel" [(ngModel)]="userregister.repassword" placeholder="Re-Type Password"
                 maxlength="20" autocomplete="off" required>
               <span class="error-in" *ngIf="f.submitted && !(userregister.password==userregister.repassword)">Please Enter valid password.</span>
-            
-            <span class="error-in" *ngIf="f.submitted && !repassword.valid && username.valid">Please Enter valid password.</span>
-            <span class="error-in" *ngIf="f.submitted && !username.valid && repassword.valid">Please Enter valid Username.</span>
-            <span class="error-in" *ngIf="f.submitted && !username.valid && !repassword.valid">Please Enter Username & Password.</span>
-          </div>
+
+              <span class="error-in" *ngIf="f.submitted && !repassword.valid && username.valid">Please Enter valid password.</span>
+              <span class="error-in" *ngIf="f.submitted && !username.valid && repassword.valid">Please Enter valid Username.</span>
+              <span class="error-in" *ngIf="f.submitted && !username.valid && !repassword.valid">Please Enter Username & Password.</span>
+            </div>
           </li>
         </ul>
 
         <input type="submit" value="Register">
       </form>
+
     </div>
   </div>
 </div>

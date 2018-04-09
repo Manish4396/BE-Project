@@ -35,6 +35,7 @@
           <span class="error-in" *ngIf="f.submitted && username.valid &&  !password.valid">Please Enter Password </span>
           <span class="error-in" *ngIf="f.submitted && !username.valid && password.valid">Please Enter User Name </span>
         </div>
+        <div class="error-in" *ngIf="msg">{{msg}}</div>
         <input type="submit"  value="Login">
       </form>
     </div>

@@ -1,278 +1,301 @@
 Doctors Registration
-	<!--//banner -->
-	<div class="w3ls-banner">
+<!--//banner -->
+<div class="w3ls-banner">
+  <div class="heading">
+    <h1>Doctor's Registration</h1>
+  </div>
+  <div class="container_1">
     <div class="heading">
-      <h1>Doctor's Registration</h1>
+      <h2>Personal Details</h2>
+      <p></p>
     </div>
-      <div class="container_1">
-        <div class="heading">
-          <h2>Personal Details</h2>
-          <p></p>
-        </div>
-        <div class="agile-form">
-          <form #f="ngForm"  (ngSubmit)="f.form.valid && register()"  novalidate>
-            <ul class="field-list">
-              <li>
-                <label class="form-label"> 
-                  Full Name 
-                  <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <input type="text" name="dname" #dname="ngModel" [(ngModel)]="doctor.dname" placeholder="Enter Your Name" maxlength="100" autocomplete="off" required >
-                </div>
-                <span class="error-in" *ngIf="f.submitted && !dname.valid ">Please Enter Name </span>
+    <div class="agile-form">
+      <form #f="ngForm" (ngSubmit)="f.form.valid && register()" novalidate>
+        <ul class="field-list">
+          <li>
+            <label class="form-label">
+              Full Name
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="text" name="dname" #dname="ngModel" [(ngModel)]="doctor.dname" placeholder="Enter Your Name" maxlength="100"
+                autocomplete="off" required>
+            </div>
+            <span class="error-in" *ngIf="f.submitted && !dname.valid ">Please Enter Name </span>
+
+          </li>
+          <li>
+            <label class="form-label">
+              Gender
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <select class="form-dropdown" name="gender" [(ngModel)]="doctor.gender" #gender="ngModel" required>
+                <option *ngFor="let c of gen" [(ngValue)]="c.id">{{c.name}}</option>
+              </select>
+              <span class="error-in" *ngIf="f.submitted && !gender.valid ">Please Select Gender </span>
+
+            </div>
+          </li>
+          <li>
+            <label class="form-label">
+              Mobile Number
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="int" name="dmobile_number" #dmobile_number="ngModel" pattern="[0-9]" [(ngModel)]="doctor.dmobile_number" placeholder="Mobile Number"
+                maxlength="10" autocomplete="off" required>
+            </div>
+            <span class="error-in" *ngIf="f.submitted && !dmobile_number.valid ">Please Enter Proper Number (Only digits) </span>
+
+          </li>
+          <li>
+            <label class="form-label">
+              Age
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="int" name="age" #age="ngModel" pattern="[0-9]" [(ngModel)]="doctor.age" placeholder="Age in Years" maxlength="2"
+                autocomplete="off" required>
+            </div>
+            <span class="error-in" *ngIf="f.submitted && !age.valid ">Please Enter Proper Age (Only digits) </span>
+
+          </li>
+
+          <li>
+            <label class="form-label">
+              E-Mail
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+
+              <input type="email" name="demail" #demail="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,3})" [(ngModel)]="doctor.demail" placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
+              <span class="error-in" *ngIf="f.submitted && !demail.valid ">Please Enter Proper Email ID (abc@gmail.com) </span>
+
+            </div>
+            
+          </li>
+          <li>
+            <label class="form-label">
+              Username
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="text" name="dusername" #dusername="ngModel" [(ngModel)]="doctor.dusername" placeholder="Enter Username" maxlength="15" autocomplete="off"
+                required>
+            </div>
+          </li>
+          <li>
+            <label class="form-label">
+              Password
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="password" name="dpassword" #dpassword="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                [(ngModel)]="doctor.dpassword" placeholder="Enter Password" maxlength="20" autocomplete="off" required>
+            </div>
+          </li>
+          <li>
+            <label class="form-label">
+              Re-Type Password
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="password" name="drepassword" #drepassword="ngModel" [(ngModel)]="doctor.drepassword" placeholder="Re-Type Password" maxlength="20"
+                autocomplete="off" required>
+                <span class="error-in" *ngIf="f.submitted && !(doctor.dpassword==doctor.drepassword)">Please Enter valid password.</span>
+
+                <span class="error-in" *ngIf="f.submitted && !drepassword.valid && dusername.valid">Please Enter valid password.</span>
+                <span class="error-in" *ngIf="f.submitted && !dusername.valid && drepassword.valid">Please Enter valid Username.</span>
+                <span class="error-in" *ngIf="f.submitted && !dusername.valid && !drepassword.valid">Please Enter Username & Password.</span>
               
-              </li>
-              <li>
-                <label class="form-label">
-                   Gender
-                   <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <select class="form-dropdown" name="gender" [(ngModel)]="doctor.gender" #gender="ngModel"  required>
-                    <option *ngFor="let c of gen" [(ngValue)]="c.id">{{c.name}}</option>
-                  </select>
-                  <span class="error-in" *ngIf="f.submitted && !gender.valid ">Please Select Gender </span>
-                
-                </div>
-              <li>
-              <li> 
-                <label class="form-label">
-                   Mobile Number
-                   <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <input type="int" name="dmobile_number" #dmobile_number="ngModel" pattern="[0-9]" [(ngModel)]="doctor.dmobile_number"  placeholder="Mobile Number" maxlength="10" autocomplete="off" required >
-                </div>
-                <span class="error-in" *ngIf="f.submitted && !dmobile_number.valid ">Please Enter Proper Number (Only digits) </span>
-              
-              </li>
-              <li> 
-                <label class="form-label">
-                   Age
-                   <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <input type="int" name="age" #age="ngModel" pattern="[0-9]" [(ngModel)]="doctor.age" placeholder="Age in Years" maxlength="2" autocomplete="off" required >
-                </div>
-                <span class="error-in" *ngIf="f.submitted && !age.valid ">Please Enter Proper Age (Only digits) </span>
-              
-              </li>
-              
-              <li> 
-                <label class="form-label">
-                   E-Mail
-                   <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                
-                <input type="email" name="demail" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,3})" [(ngModel)]="doctor.demail" placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
-                 </div>
-                 <span class="error-in" *ngIf="f.submitted && !demail.valid ">Please Enter Proper Email ID (abc@gmail.com) </span>
-                
-              </li>
-              <li> 
-                <label class="form-label">
-                  Username
-                   <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <input type="text" name="dusername" [(ngModel)]="doctor.dusername" placeholder="Enter Username" maxlength="15" autocomplete="off" required>
-                </div>
-              </li>
-              <li> 
-                <label class="form-label">
-                   Password
-                   <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <input type="password" name="dpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" [(ngModel)]="doctor.dpassword" placeholder="Enter Password" maxlength="20" autocomplete="off" required>
-                </div>
-              </li>
-              <li> 
-                <label class="form-label">
-                  Re-Type Password
-                   <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <input type="password" name="drepassword" [(ngModel)]="doctor.drepassword" placeholder="Re-Type Password" maxlength="20" autocomplete="off" required>
-                </div>
-              </li>
-              <li>
-                  <label class="form-label"> 
-                    City 
-                    <span class="form-required"> * </span>
-                  </label>
-                  <div class="form-input">
-                    <input type="text" name="dcity" [(ngModel)]="doctor.dcity" placeholder="Enter Your City" maxlength="100" autocomplete="off" required >
+            </div>
+          </li>
+          <li>
+            <label class="form-label">
+              City
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="text" name="dcity" #dcity="ngModel" [(ngModel)]="doctor.dcity" placeholder="Enter Your City" maxlength="100" autocomplete="off"
+                required>
+                <span class="error-in" *ngIf="f.submitted && !dcity.valid ">Please Enter City </span>
+  
+            </div>
+          </li>
+          <hr>
+          <div class="heading">
+            <h2>Educational Qualification</h2>
+            <p></p>
+          </div>
+          <li>
+            <label class="form-label">
+              Degree
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="text" name="degree" #degree="ngModel" [(ngModel)]="doctor.degree" placeholder="" maxlength="10" autocomplete="off" required>
+              <span class="error-in" *ngIf="f.submitted && !degree.valid ">Please Enter Degree </span>
+  
+            </div>
+          </li>
+          <li>
+            <label class="form-label">
+              College
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="text" name="college" #college="ngModel" [(ngModel)]="doctor.college" placeholder="" maxlength="10" autocomplete="off" required>
+              <span class="error-in" *ngIf="f.submitted && !college.valid ">Please Enter College </span>
+  
+            </div>
+          </li>
+          <li>
+            <label class="form-label">
+              Year of Completion
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="int" name="yoc" #yoc="ngModel" pattern="[0-9]" [(ngModel)]="doctor.yoc" placeholder="" maxlength="4" autocomplete="off"
+                required>
+            </div>
+            <span class="error-in" *ngIf="f.submitted && !yoc.valid ">Please Enter Proper Year (Only digits) </span>
+
+          </li>
+          <li>
+            <label class="form-label">
+              Experience in Years
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="int" name="experience" #experience="ngModel" pattern="[0-9]" [(ngModel)]="doctor.experience" placeholder=""
+                maxlength="2" autocomplete="off" required>
+            </div>
+            <span class="error-in" *ngIf="f.submitted && !experience.valid ">Please Enter Proper Number (Only digits) </span>
+
+          </li>
+          <hr>
+          <div class="heading">
+            <h2>Availability</h2>
+            <p></p>
+          </div>
+          <div class="agile-form">
+            <form action="/" method="post">
+              <fieldset data-role="controlgroup" data-type="horizontal">
+                <label for="Monday">Monday</label>
+                <input type="checkbox" name="Monday" [(ngModel)]="doctor.Monday" id="Monday" value="Monday">
+                <label for="Tuesday">Tuesday</label>
+                <input type="checkbox" name="Tuesday" [(ngModel)]="doctor.Tuesday" id="Tuesday" value="Tuesday">
+                <label for="Wednesday">Wednesday</label>
+                <input type="checkbox" name="Wednesday" [(ngModel)]="doctor.Wednesday" id="Wednesday" value="Wednesday">
+                <label for="Thursday">Thursday</label>
+                <input type="checkbox" name="Thursday" [(ngModel)]="doctor.Thursday" id="Thursday" value="Thursday">
+                <label for="Friday">Friday</label>
+                <input type="checkbox" name="Friday" [(ngModel)]="doctor.Friday" id="Friday" value="Friday">
+                <label for="Saturday">Saturday</label>
+                <input type="checkbox" name="Saturday" [(ngModel)]="doctor.Saturday" id="Saturday" value="Saturday">
+                <label for="Sunday">Sunday</label>
+                <input type="checkbox" name="Sunday" [(ngModel)]="doctor.Sunday" id="Sunday" value="Sunday">
+              </fieldset>
+              <ul class="field-list">
+                <li>
+                  <div class="form-input dob">
+                    <span class="form-sub-label">
+                      <select name="time1" [(ngModel)]="doctor.time1" class="time">
+                        <option>&nbsp;</option>
+                        <option value="9"> 9:00am </option>
+                        <option value="10"> 10:00am </option>
+                        <option value="11"> 11:00am </option>
+                        <option value="12"> 12:00pm </option>
+                        <option value="1"> 1:00pm </option>
+                        <option value="2"> 2:00pm </option>
+                        <option value="3"> 3:00pm </option>
+                        <option value="4"> 4:00pm </option>
+                        <option value="5"> 5:00pm </option>
+                        <option value="6"> 6:00pm </option>
+                        <option value="7"> 7:00pm </option>
+                        <option value="8"> 8:00pm </option>
+                      </select>
+                    </span>
+                    <span>from</span>
+                    <span class="form-sub-label">
+                      <select name="time2" [(ngModel)]="doctor.time2" class="time">
+                        <option>&nbsp;</option>
+                        <option value="9"> 9:00am </option>
+                        <option value="10"> 10:00am </option>
+                        <option value="11"> 11:00am </option>
+                        <option value="12"> 12:00pm </option>
+                        <option value="1"> 1:00pm </option>
+                        <option value="2"> 2:00pm </option>
+                        <option value="3"> 3:00pm </option>
+                        <option value="4"> 4:00pm </option>
+                        <option value="5"> 5:00pm </option>
+                        <option value="6"> 6:00pm </option>
+                        <option value="7"> 7:00pm </option>
+                        <option value="8"> 8:00pm </option>
+                      </select>
+                    </span>
+
+
+                  </div>
+
+
+
+
+                </li>
+
+
+                <li>
+                  <h5> Timing for other days as per availability </h5>
+                  <br>
+                  <div class="form-input dob">
+                    <span class="form-sub-label">
+                      <select name="time3" [(ngModel)]="doctor.time3" class="time">
+                        <option>&nbsp;</option>
+                        <option value="9"> 9:00am </option>
+                        <option value="10"> 10:00am </option>
+                        <option value="11"> 11:00am </option>
+                        <option value="12"> 12:00pm </option>
+                        <option value="1"> 1:00pm </option>
+                        <option value="2"> 2:00pm </option>
+                        <option value="3"> 3:00pm </option>
+                        <option value="4"> 4:00pm </option>
+                        <option value="5"> 5:00pm </option>
+                        <option value="6"> 6:00pm </option>
+                        <option value="7"> 7:00pm </option>
+                        <option value="8"> 8:00pm </option>
+                      </select>
+                    </span>
+                    <span>from</span>
+                    <span class="form-sub-label">
+                      <select name="time4" [(ngModel)]="doctor.time4" class="time">
+                        <option>&nbsp;</option>
+                        <option value="9"> 9:00am </option>
+                        <option value="10"> 10:00am </option>
+                        <option value="11"> 11:00am </option>
+                        <option value="12"> 12:00pm </option>
+                        <option value="1"> 1:00pm </option>
+                        <option value="2"> 2:00pm </option>
+                        <option value="3"> 3:00pm </option>
+                        <option value="4"> 4:00pm </option>
+                        <option value="5"> 5:00pm </option>
+                        <option value="6"> 6:00pm </option>
+                        <option value="7"> 7:00pm </option>
+                        <option value="8"> 8:00pm </option>
+                      </select>
+                    </span>
+                    <br>
                   </div>
                 </li>
-                <hr>
-                <div class="heading">
-                    <h2>Educational Qualification</h2>
-                    <p></p>
-                  </div>
-                  <li>
-                      <label class="form-label"> 
-                        Degree 
-                        <span class="form-required"> * </span>
-                      </label>
-                      <div class="form-input">
-                        <input type="text" name="degree" [(ngModel)]="doctor.degree" placeholder="" maxlength="10" autocomplete="off" required >
-                      </div>
-                    </li>
-                    <li>
-                        <label class="form-label"> 
-                          College
-                          <span class="form-required"> * </span>
-                        </label>
-                        <div class="form-input">
-                          <input type="text" name="college" [(ngModel)]="doctor.college" placeholder="" maxlength="10" autocomplete="off" required >
-                        </div>
-                      </li>
-                      <li>
-                          <label class="form-label"> 
-                            Year of Completion
-                            <span class="form-required"> * </span>
-                          </label>
-                          <div class="form-input">
-                            <input type="int" name="yoc" #yoc="ngModel" pattern="[0-9]" [(ngModel)]="doctor.yoc" placeholder="" maxlength="4" autocomplete="off" required >
-                          </div>
-                          <span class="error-in" *ngIf="f.submitted && !yoc.valid ">Please Enter Proper Year (Only digits) </span>
-              
-                        </li>
-                        <li>
-                            <label class="form-label"> 
-                              Experience in Years
-                              <span class="form-required"> * </span>
-                            </label>
-                            <div class="form-input">
-                              <input type="int" name="experience" #experience="ngModel" pattern="[0-9]" [(ngModel)]="doctor.experience" placeholder="" maxlength="2" autocomplete="off" required >
-                            </div>
-                            <span class="error-in" *ngIf="f.submitted && !experience.valid ">Please Enter Proper Number (Only digits) </span>
-              
-                          </li>
-                          <hr>
-                          <div class="heading">
-                              <h2>Availability</h2>
-                              <p></p>
-                            </div>
-                            <div class="agile-form">
-                                <form action="/" method="post">
-                                    <fieldset data-role="controlgroup" data-type="horizontal">
-                                    <label for="Monday">Monday</label>
-                                    <input type="checkbox" name="Monday" [(ngModel)]="doctor.Monday" id="Monday" value="Monday">
-                                    <label for="Tuesday">Tuesday</label>
-                                    <input type="checkbox" name="Tuesday" [(ngModel)]="doctor.Tuesday" id="Tuesday" value="Tuesday">
-                                    <label for="Wednesday">Wednesday</label>
-                                    <input type="checkbox" name="Wednesday" [(ngModel)]="doctor.Wednesday" id="Wednesday" value="Wednesday">
-                                    <label for="Thursday">Thursday</label>
-                                    <input type="checkbox" name="Thursday" [(ngModel)]="doctor.Thursday" id="Thursday" value="Thursday">
-                                    <label for="Friday">Friday</label>
-                                    <input type="checkbox" name="Friday" [(ngModel)]="doctor.Friday" id="Friday" value="Friday">
-                                    <label for="Saturday">Saturday</label>
-                                    <input type="checkbox" name="Saturday" [(ngModel)]="doctor.Saturday" id="Saturday" value="Saturday">
-                                    <label for="Sunday">Sunday</label>
-                                    <input type="checkbox" name="Sunday" [(ngModel)]="doctor.Sunday" id="Sunday" value="Sunday">
-                                </fieldset>
-                                  <ul class="field-list">
-                                      <li>
-                                      <div class="form-input dob">
-                                        <span class="form-sub-label">
-                                          <select name="time1" [(ngModel)]="doctor.time1"  class="time">
-                                            <option>&nbsp;</option>
-                                            <option value="9"> 9:00am </option>
-                                            <option value="10"> 10:00am </option>
-                                            <option value="11"> 11:00am </option>
-                                            <option value="12"> 12:00pm </option>
-                                            <option value="1"> 1:00pm </option>
-                                            <option value="2"> 2:00pm </option>
-                                            <option value="3"> 3:00pm </option>
-                                            <option value="4"> 4:00pm </option>
-                                            <option value="5"> 5:00pm </option>
-                                            <option value="6"> 6:00pm </option>
-                                            <option value="7"> 7:00pm </option>
-                                            <option value="8"> 8:00pm </option>
-                                            </select>
-                                        </span>
-                                        <span>from</span>
-                                        <span class="form-sub-label">
-                                          <select name="time2" [(ngModel)]="doctor.time2" class="time">
-                                            <option>&nbsp;</option>
-                                            <option value="9"> 9:00am </option>
-                                            <option value="10"> 10:00am </option>
-                                            <option value="11"> 11:00am </option>
-                                            <option value="12"> 12:00pm </option>
-                                            <option value="1"> 1:00pm </option>
-                                            <option value="2"> 2:00pm </option>
-                                            <option value="3"> 3:00pm </option>
-                                            <option value="4"> 4:00pm </option>
-                                            <option value="5"> 5:00pm </option>
-                                            <option value="6"> 6:00pm </option>
-                                            <option value="7"> 7:00pm </option>
-                                            <option value="8"> 8:00pm </option>
-                                            </select>
-                                        </span> 
-                                        
-                                         
-                                      </div>
-                                      
-                                      
-                                      
-                                      
-                                    </li>
-                                    
-                                    
-                                    <li>
-                                    <h4> Timing for other days as per availability </h4>
-                                    <br>
-                                    <div class="form-input dob">
-                                        <span class="form-sub-label">
-                                          <select name="time3" [(ngModel)]="doctor.time3" class="time">
-                                            <option>&nbsp;</option>
-                                            <option value="9"> 9:00am </option>
-                                            <option value="10"> 10:00am </option>
-                                            <option value="11"> 11:00am </option>
-                                            <option value="12"> 12:00pm </option>
-                                            <option value="1"> 1:00pm </option>
-                                            <option value="2"> 2:00pm </option>
-                                            <option value="3"> 3:00pm </option>
-                                            <option value="4"> 4:00pm </option>
-                                            <option value="5"> 5:00pm </option>
-                                            <option value="6"> 6:00pm </option>
-                                            <option value="7"> 7:00pm </option>
-                                            <option value="8"> 8:00pm </option>
-                                            </select>
-                                        </span>
-                                        <span>from</span>
-                                        <span class="form-sub-label">
-                                          <select name="time4" [(ngModel)]="doctor.time4" class="time">
-                                            <option>&nbsp;</option>
-                                            <option value="9"> 9:00am </option>
-                                            <option value="10"> 10:00am </option>
-                                            <option value="11"> 11:00am </option>
-                                            <option value="12"> 12:00pm </option>
-                                            <option value="1"> 1:00pm </option>
-                                            <option value="2"> 2:00pm </option>
-                                            <option value="3"> 3:00pm </option>
-                                            <option value="4"> 4:00pm </option>
-                                            <option value="5"> 5:00pm </option>
-                                            <option value="6"> 6:00pm </option>
-                                            <option value="7"> 7:00pm </option>
-                                            <option value="8"> 8:00pm </option>
-                                            </select>
-                                        </span> <br>
-                                      </div>
-                                    </li>
-                                    
-                                    
-                                  </ul>
-                                  
-                                </form>	
-                              </div>
-                        </ul>
-            <input type="submit" (click)="register()" value="Register">
-          </form>	
-        </div>
-      </div>
+
+
+              </ul>
+
+            </form>
+          </div>
+        </ul>
+        <input type="submit" value="Register">
+      </form>
+    </div>
   </div>
+</div>

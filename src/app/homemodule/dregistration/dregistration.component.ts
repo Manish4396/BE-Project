@@ -36,6 +36,12 @@ export class DregistrationComponent implements OnInit {
     time4: "",
    
   }
+  gen = [
+    { id:'male', name: "Male" },
+    { id:'female', name: "Female" },
+    { id:'Transgender', name: "Transgender" }
+
+  ];
   constructor(public dregistrationServices: DregistrationServices) { }
 
   ngOnInit() {

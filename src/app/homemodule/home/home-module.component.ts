@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedServiceService } from '../../SharedService/shared-service.service';
-
+import { RouterLink ,Router} from '@angular/router';
 @Component({
   selector: 'app-homemodule',
   templateUrl: './home-module.component.html',
@@ -9,7 +9,7 @@ import { SharedServiceService } from '../../SharedService/shared-service.service
 })
 export class HomemoduleComponent implements OnInit {
   loginhome:any
-  constructor(public _sharedService: SharedServiceService) { }
+  constructor(private router: Router,public _sharedService: SharedServiceService) { }
 
   ngOnInit() {
     

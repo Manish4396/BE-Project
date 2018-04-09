@@ -1,5 +1,6 @@
-<app-header-module></app-header-module>
+<app-header-module *ngIf="login"></app-header-module>
+<app-loggedin-header-module *ngIf="!login"></app-loggedin-header-module>
 <!-- <app-homemodule></app-homemodule> -->
-<router-outlet></router-outlet>
+<router-outlet (activate)='onActivate($event)'></router-outlet>
 
 <app-footer-module></app-footer-module>

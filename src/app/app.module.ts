@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 // import { HomemoduleComponent } from './home/home-module.component';
 import { HeaderModuleComponent } from './header-module/header-module.component';
 import { FooterModuleComponent } from './footer-module/footer-module.component';
-
+import { LoggedinHeaderModuleComponent } from './loggedin-header-module/loggedin-header-module.component';
 
 // import { LoginComponent } from './homemodule/login/login.component';
 
@@ -16,7 +16,7 @@ import { FooterModuleComponent } from './footer-module/footer-module.component';
     // HomemoduleComponent,
     HeaderModuleComponent,
     FooterModuleComponent,
-    
+    LoggedinHeaderModuleComponent
     // LoginComponent,
     ],
   imports: [

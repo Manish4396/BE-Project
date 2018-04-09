@@ -1,105 +1,112 @@
-Register
-	<!--//banner -->
-	<div class="w3ls-banner">
-    <div class="heading">
-      <h1>Register with Us</h1>
-    </div>
-      <div class="container_1">
-        <div class="heading">
-          <h2>Please Enter Your Details</h2>
-          <p></p>
-        </div>
-        <div class="agile-form">
-          <form #f="ngForm"  (ngSubmit)="f.form.valid && register()"  novalidate>
-            <ul class="field-list">
-              <li>
-                <label class="form-label"> 
-                  Full Name 
-                  <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <input type="text" name="patient_name" #patient_name="ngModel" [(ngModel)]="userregister.patient_name" placeholder="Enter Patients Name" maxlength="100" autocomplete="off" required >
-                </div>
-                <span class="error-in" *ngIf="f.submitted && !patient_name.valid ">Please Enter Name </span>
-              </li>
-              <li>
-                <label class="form-label">
-                   Gender
-                   <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <select class="form-dropdown" name="gender" [(ngModel)]="userregister.gender" #gender="ngModel" required>
-                    <option *ngFor="let c of gen" [(ngValue)]="c.id">{{c.name}}</option>
-                  </select>
-                  <span class="error-in" *ngIf="f.submitted && !gender.valid ">Please Select Gender </span>
-                </div>
-              <li>
-              <li> 
-                <label class="form-label">
-                   Mobile Number
-                   <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <input type="int" name="mobile_number" #mobile_number="ngModel" pattern="[0-9]" [(ngModel)]="userregister.mobile_number"  placeholder="Mobile Number" maxlength="10" autocomplete="off" required >
-                </div>
-                <span class="error-in" *ngIf="f.submitted && !mobile_number.valid ">Please Enter Proper Number (Only digits) </span>
-              
-              </li>
-              <li> 
-                <label class="form-label">
-                   Age
-                   <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <input type="int"  name="age" #age="ngModel" pattern="[0-9]" [(ngModel)]="userregister.age"  placeholder="Age in Years" maxlength="2" autocomplete="off" required >
-                </div>
-                <span class="error-in" *ngIf="f.submitted && !age.valid ">Please Enter Proper Age (Only digits) </span>
-              
-              </li>
-              
-              <li> 
-                <label class="form-label">
-                   E-Mail
-                   <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <input type="email" name="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,3})" [(ngModel)]="userregister.email" placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
-                </div>
-                <div>
-                  <span class="error-in" *ngIf="f.submitted && !email.valid ">Please Enter Proper Email ID (abc@gmail.com) </span>
-              </div>
-            
-              </li>
-              <li> 
-                <label class="form-label">
-                  Username
-                   <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <input type="text" name="username" [(ngModel)]="userregister.username" placeholder="Enter Username" maxlength="15" autocomplete="off" required>
-                </div>
-              </li>
-              <li> 
-                <label class="form-label">
-                   Password
-                   <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" [(ngModel)]="userregister.password" placeholder="Enter Password" maxlength="20" autocomplete="off" required>
-                </div>
-              </li>
-              <li> 
-                <label class="form-label">
-                  Re-Type Password
-                   <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <input type="password" name="repassword" [(ngModel)]="userregister.repassword" placeholder="Re-Type Password" maxlength="20" autocomplete="off" required>
-                </div>
-              </li>
-            </ul>
-            <input type="submit" (click)="register()" value="Register">
-          </form>	
-        </div>
-      </div>
+<!--//banner -->
+<div class="w3ls-banner">
+  <div class="heading">
+    <h1>Register with Us</h1>
   </div>
+  <div class="container_1">
+    <div class="heading">
+      <h2>Please Enter Your Details</h2>
+      <p></p>
+    </div>
+    <div class="agile-form">
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && register()" novalidate>
+        <ul class="field-list">
+          <li>
+            <label class="form-label">
+              Full Name
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="text" name="patientname" #patientname="ngModel" [(ngModel)]="userregister.patient_name" placeholder="Enter Patients Name"
+                maxlength="100" autocomplete="off" required>
+              <span class="error-in" *ngIf="f.submitted && !patientname.valid ">Please Enter Name </span>
+            </div>
+          </li>
+          <li>
+            <label class="form-label">
+              Gender
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <select class="form-dropdown" name="gender" [(ngModel)]="userregister.gender" #gender="ngModel" required>
+                <option *ngFor="let c of gen" [(ngValue)]="c.id">{{c.name}}</option>
+              </select>
+              <span class="error-in" *ngIf="f.submitted && !gender.valid ">Please Select Gender </span>
+            </div>
+          </li>
+          <li>
+            <label class="form-label">
+              Mobile Number
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="int" name="mobilenumber" #mobilenumber="ngModel" pattern="[0-9]{10}" [(ngModel)]="userregister.mobile_number"
+                name="mobile_number" placeholder="Mobile Number" maxlength="10" autocomplete="off" required>
+              <span class="error-in" *ngIf="f.submitted && !mobilenumber.valid ">Please Enter Proper Mobile No (Only 10 digits) </span>
+            </div>
+          </li>
+          <li>
+            <label class="form-label">
+              Age
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="int" [(ngModel)]="userregister.age" name="age" #age="ngModel" pattern="[0-9]{02}" placeholder="Age in Years"
+                maxlength="2" autocomplete="off" required>
+              <span class="error-in" *ngIf="f.submitted && !age.valid ">Please Enter Proper Age (Only digits) </span>
+            </div>
+          </li>
+
+          <li>
+            <label class="form-label">
+              E-Mail
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="email" name="email" #email="ngModel" [(ngModel)]="userregister.email" placeholder="myname@example.com" maxlength="100"
+                autocomplete="off" required>
+              <span class="error-in" *ngIf="f.submitted && !email.valid ">Please Enter Proper Email ID.</span>
+            </div>
+          </li>
+          <li>
+            <label class="form-label">
+              Username
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="text" name="username" #username="ngModel" [(ngModel)]="userregister.username" placeholder="Enter Username" maxlength="15"
+                autocomplete="off" required>
+            </div>
+          </li>
+          <li>
+            <label class="form-label">
+              Password
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="password" name="password" #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                [(ngModel)]="userregister.password" placeholder="Enter Password" maxlength="20" autocomplete="off" required>
+            </div>
+          </li>
+          <li>
+            <label class="form-label">
+              Re-Type Password
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">{{userregister.password}}{{userregister.repassword}}
+              <input type="password" name="repassword" #repassword="ngModel" [(ngModel)]="userregister.repassword" placeholder="Re-Type Password"
+                maxlength="20" autocomplete="off" required>
+              <span class="error-in" *ngIf="f.submitted && !(userregister.password==userregister.repassword)">Please Enter valid password.</span>
+            
+            <span class="error-in" *ngIf="f.submitted && !repassword.valid && username.valid">Please Enter valid password.</span>
+            <span class="error-in" *ngIf="f.submitted && !username.valid && repassword.valid">Please Enter valid Username.</span>
+            <span class="error-in" *ngIf="f.submitted && !username.valid && !repassword.valid">Please Enter Username & Password.</span>
+          </div>
+          </li>
+        </ul>
+
+        <input type="submit" value="Register">
+      </form>
+    </div>
+  </div>
+</div>

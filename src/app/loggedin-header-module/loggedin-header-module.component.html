@@ -49,14 +49,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </ul>
         </div>
         <div class="header_right">
-          <ul class="forms_right">{{_sharedService.login}}
+          <ul class="forms_right">
             <!-- <li>
               <a routerLink="appoinment"> Make an Appointment</a>
             </li> -->
-            <li *ngIf="!(_sharedService.login)"> <a routerLink="login"> login</a></li>
-            <li *ngIf="!(_sharedService.login)"> <a routerLink="register"> Register</a></li>
-            <li *ngIf="_sharedService.login">Hi {{_sharedService.currentuser}} </li>
-            <li *ngIf="_sharedService.login"><a (click)="logout()"> Logout</a></li>
+            <li> <a routerLink="login"> login</a></li>
+            <li> <a routerLink="register"> Register</a></li>
+            <!-- <li *ngIf="sharedService.login">Hi {{_sharedService.currentuser}} </li>
+            <li *ngIf="sharedService.login"><a (click)="logout()"> Logout</a></li> -->
           </ul>
 
         </div>
@@ -89,13 +89,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li>
                   <a routerLink="aboutus">About</a>
                 </li>
-                <li *ngIf="_sharedService.login">
+                <li *ngIf="sharedService.login">
                   <a routerLink="appoinment">Appointment</a>
                 </li>
-                <li *ngIf="_sharedService.login">
+                <li *ngIf="sharedService.login">
                   <a routerLink="departments">Departments</a>
                 </li>
-                <li *ngIf="_sharedService.login">
+                <li *ngIf="sharedService.login">
                   <a routerLink="mail">Mail Us</a>
                 </li>
               </ul>

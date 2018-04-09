@@ -18,8 +18,8 @@
                 </label>
                 <div class="form-input">
                   <input type="text" name="patientname" #patientname="ngModel" [(ngModel)]="appointment.patient_Name" placeholder="Enter Patients Name" maxlength="15" autocomplete="off" required >
+                  <span class="error-in" *ngIf="f.submitted && !patientname.valid ">Please Enter Name </span>
                 </div>
-                <span class="error-in" *ngIf="f.submitted && !patientname.valid ">Please Enter Name </span>
               </li>
               <li>
                 <label class="form-label">
@@ -39,7 +39,7 @@
                    <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="int" name="age" #age="ngModel" pattern="[0-9]" [(ngModel)]="appointment.age" placeholder="Age in Years" maxlength="2" autocomplete="off" required >
+                  <input type="int" name="age" #age="ngModel" pattern="[0-9]{02}" [(ngModel)]="appointment.age" placeholder="Age in Years" maxlength="2" autocomplete="off" required >
                 </div>
                 <span class="error-in" *ngIf="f.submitted && !age.valid ">Please Enter Proper Age (Only digits) </span>
               </li>
@@ -85,9 +85,7 @@
                 </label>
                 <div class="form-input">
                   <input type="email" name="email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,3})" [(ngModel)]="appointment.email" placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
-                </div>
-                <div>
-                    <span class="error-in" *ngIf="f.submitted && !email.valid ">Please Enter Proper Email ID (abc@gmail.com) </span>
+                  <span class="error-in" *ngIf="f.submitted && !email.valid ">Please Enter Proper Email ID.</span>
                 </div>
               </li>
               <li> 

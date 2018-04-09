@@ -20,6 +20,12 @@ export class RegisterComponent implements OnInit {
     repassword: ""
 
   }
+  gen = [
+    { id:'male', name: "Male" },
+    { id:'female', name: "Female" },
+    { id:'Transgender', name: "Transgender" }
+
+  ];
   constructor(public registerServices: RegisterServices) { }
 
   ngOnInit() {

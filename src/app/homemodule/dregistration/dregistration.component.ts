@@ -44,6 +44,8 @@ export class DregistrationComponent implements OnInit {
   ];
   constructor(public dregistrationServices: DregistrationServices) { }
 
+  public f : any;
+
   ngOnInit() {
   }
 

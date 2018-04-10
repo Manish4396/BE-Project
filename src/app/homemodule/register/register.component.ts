@@ -28,6 +28,9 @@ export class RegisterComponent implements OnInit {
   ];
   constructor(public registerServices: RegisterServices) { }
 
+  public f: any;
+  
+
   ngOnInit() {
   }
 
@@ -35,10 +38,9 @@ export class RegisterComponent implements OnInit {
     this.registerServices.saveuser(this.userregister)
       .subscribe(res => {
         alert("Login" + JSON.stringify(res) + res)
-
-
+        this["f.resetForm()"];
       })
-
+      
   }
 
 }

@@ -17,7 +17,7 @@
               <span class="form-required"> * </span>
             </label>
             <div class="form-input">
-              <input type="text" name="patientname" #patientname="ngModel" [(ngModel)]="userregister.patient_name" placeholder="Enter Patients Name"
+              <input type="text" name="patientname" #patientname="ngModel" [(ngModel)]="userregister.patient_name" pattern="[a-zA-z]+" placeholder="Enter Patients Name"
                 maxlength="100" autocomplete="off" required>
               <span class="error-in" *ngIf="f.submitted && !patientname.valid ">Please Enter Name </span>
             </div>
@@ -63,7 +63,7 @@
               <span class="form-required"> * </span>
             </label>
             <div class="form-input">
-              <input type="email" name="email" #email="ngModel" [(ngModel)]="userregister.email" placeholder="myname@example.com" maxlength="100"
+              <input type="email" name="email" #email="ngModel" [(ngModel)]="userregister.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="myname@example.com" maxlength="100"
                 autocomplete="off" required>
               <span class="error-in" *ngIf="f.submitted && !email.valid ">Please Enter Proper Email ID.</span>
             </div>
@@ -74,7 +74,7 @@
               <span class="form-required"> * </span>
             </label>
             <div class="form-input">
-              <input type="text" name="username" #username="ngModel" [(ngModel)]="userregister.username" placeholder="Enter Username" maxlength="15"
+              <input type="text" name="username" #username="ngModel" [(ngModel)]="userregister.username" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" placeholder="Enter Username" maxlength="15"
                 autocomplete="off" required>
             </div>
           </li>
@@ -93,7 +93,7 @@
               Re-Type Password
               <span class="form-required"> * </span>
             </label>
-            <div class="form-input">{{userregister.password}}{{userregister.repassword}}
+            <div class="form-input">
               <input type="password" name="repassword" #repassword="ngModel" [(ngModel)]="userregister.repassword" placeholder="Re-Type Password"
                 maxlength="20" autocomplete="off" required>
               <span class="error-in" *ngIf="f.submitted && !(userregister.password==userregister.repassword)">Please Enter valid password.</span>

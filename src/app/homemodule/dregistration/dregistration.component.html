@@ -18,11 +18,12 @@ Doctors Registration
               <span class="form-required"> * </span>
             </label>
             <div class="form-input">
-              <input type="text" name="dname" #dname="ngModel" [(ngModel)]="doctor.dname" placeholder="Enter Your Name" maxlength="100"
+              <input type="text" name="dname" #dname="ngModel" [(ngModel)]="doctor.dname" pattern="[a-zA-z]+" placeholder="Enter Your Name" maxlength="100"
                 autocomplete="off" required>
-            </div>
-            <span class="error-in" *ngIf="f.submitted && !dname.valid ">Please Enter Name </span>
+                <span class="error-in" *ngIf="f.submitted && !dname.valid ">Please Enter Name </span>
 
+              </div>
+            
           </li>
           <li>
             <label class="form-label">
@@ -43,11 +44,11 @@ Doctors Registration
               <span class="form-required"> * </span>
             </label>
             <div class="form-input">
-              <input type="int" name="dmobile_number" #dmobile_number="ngModel" pattern="[0-9]" [(ngModel)]="doctor.dmobile_number" placeholder="Mobile Number"
+              <input type="int" name="dmobile_number" #dmobile_number="ngModel" pattern="[0-9]{10}" [(ngModel)]="doctor.dmobile_number" placeholder="Mobile Number"
                 maxlength="10" autocomplete="off" required>
-            </div>
-            <span class="error-in" *ngIf="f.submitted && !dmobile_number.valid ">Please Enter Proper Number (Only digits) </span>
-
+                <span class="error-in" *ngIf="f.submitted && !dmobile_number.valid ">Please Enter Proper Number (Only digits) </span>
+              </div>
+            
           </li>
           <li>
             <label class="form-label">
@@ -55,11 +56,11 @@ Doctors Registration
               <span class="form-required"> * </span>
             </label>
             <div class="form-input">
-              <input type="int" name="age" #age="ngModel" pattern="[0-9]" [(ngModel)]="doctor.age" placeholder="Age in Years" maxlength="2"
+              <input type="int" name="age" #age="ngModel" pattern="[0-9]{02}" [(ngModel)]="doctor.age" placeholder="Age in Years" maxlength="2"
                 autocomplete="off" required>
-            </div>
-            <span class="error-in" *ngIf="f.submitted && !age.valid ">Please Enter Proper Age (Only digits) </span>
-
+                <span class="error-in" *ngIf="f.submitted && !age.valid ">Please Enter Proper Age (Only digits) </span>
+              </div>
+           
           </li>
 
           <li>
@@ -156,11 +157,11 @@ Doctors Registration
               <span class="form-required"> * </span>
             </label>
             <div class="form-input">
-              <input type="int" name="yoc" #yoc="ngModel" pattern="[0-9]" [(ngModel)]="doctor.yoc" placeholder="" maxlength="4" autocomplete="off"
+              <input type="int" name="yoc" #yoc="ngModel" pattern="^\d{4}$" [(ngModel)]="doctor.yoc" placeholder="" maxlength="4" autocomplete="off"
                 required>
-            </div>
-            <span class="error-in" *ngIf="f.submitted && !yoc.valid ">Please Enter Proper Year (Only digits) </span>
-
+                <span class="error-in" *ngIf="f.submitted && !yoc.valid ">Please Enter Proper Year (Only digits) </span>
+              </div>
+           
           </li>
           <li>
             <label class="form-label">
@@ -170,9 +171,9 @@ Doctors Registration
             <div class="form-input">
               <input type="int" name="experience" #experience="ngModel" pattern="[0-9]" [(ngModel)]="doctor.experience" placeholder=""
                 maxlength="2" autocomplete="off" required>
-            </div>
-            <span class="error-in" *ngIf="f.submitted && !experience.valid ">Please Enter Proper Number (Only digits) </span>
-
+                <span class="error-in" *ngIf="f.submitted && !experience.valid ">Please Enter Proper Number (Only digits) </span>
+              </div>
+           
           </li>
           <hr>
           <div class="heading">
@@ -294,7 +295,7 @@ Doctors Registration
             </form>
           </div>
         </ul>
-        <input type="submit" value="Register">
+        <input type="submit" (click)="f.resetForm()" value="Register">
       </form>
     </div>
   </div>

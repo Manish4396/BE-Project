@@ -41,7 +41,7 @@
             </label>
             <div class="form-input">
               <input type="int" name="mobilenumber" #mobilenumber="ngModel" pattern="[0-9]{10}" [(ngModel)]="userregister.mobile_number"
-                name="mobile_number" placeholder="Mobile Number" maxlength="10" autocomplete="off" required>
+              placeholder="Mobile Number" maxlength="10" autocomplete="off" required>
               <span class="error-in" *ngIf="f.submitted && !mobilenumber.valid ">Please Enter Proper Mobile No (Only 10 digits) </span>
             </div>
           </li>

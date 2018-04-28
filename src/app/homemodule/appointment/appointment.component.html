@@ -17,7 +17,7 @@
                   <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="text" name="patientname" #patientname="ngModel" [(ngModel)]="appointment.patient_Name" placeholder="Enter Patients Name" maxlength="15" autocomplete="off" required >
+                  <input type="text" name="patientname" #patientname="ngModel" [(ngModel)]="appointment.patient_Name" pattern="[a-zA-z]+" placeholder="Enter Patients Name" maxlength="15" autocomplete="off" required >
                   <span class="error-in" *ngIf="f.submitted && !patientname.valid ">Please Enter Name </span>
                 </div>
               </li>
@@ -40,9 +40,9 @@
                 </label>
                 <div class="form-input">
                   <input type="int" name="age" #age="ngModel" pattern="[0-9]{02}" [(ngModel)]="appointment.age" placeholder="Age in Years" maxlength="2" autocomplete="off" required >
+                  <span class="error-in" *ngIf="f.submitted && !age.valid ">Please Enter Proper Age (Only digits) </span>
                 </div>
-                <span class="error-in" *ngIf="f.submitted && !age.valid ">Please Enter Proper Age (Only digits) </span>
-              </li>
+                </li>
               
               <li> 
                 <label class="form-label">

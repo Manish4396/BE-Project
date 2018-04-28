@@ -5,7 +5,7 @@
         <h2>Chat with a Doctor</h2>
          </div>
       <div class="agile-form">
-        <form action="http://localhost:5300/payment " >
+        <form action="http://localhost:5300/payment" #f="ngForm"  (ngSubmit)="f.form.valid && chatsave()"  novalidate >
           <ul class="field-list">
               <li> 
                   <label class="form-label1">
@@ -25,7 +25,8 @@
                 <span class="form-required"> * </span>
               </label>
               <div class="form-input">
-                <input type="text" name="patient_name" [(ngModel)]="chat.patient_name" placeholder="Enter Patients Name" maxlength="100" autocomplete="off" required >
+                <input type="text" name="patient_name" #patient_name="ngModel" [(ngModel)]="chat.patient_name" pattern="[a-zA-z]+" placeholder="Enter Patients Name" maxlength="100" autocomplete="off" required >
+                <span class="error-in" *ngIf="f.submitted && !patient_name.valid ">Please Enter Name </span>
               </div>
             </li>
             <li> 
@@ -34,7 +35,8 @@
                  <span class="form-required"> * </span>
               </label>
               <div class="form-input">
-                <input type="int" name="age" [(ngModel)]="chat.age" placeholder="Age in Years" maxlength="2" autocomplete="off" required >
+                <input type="int" name="age" #age="ngModel" pattern="[0-9]{02}" [(ngModel)]="chat.age" placeholder="Age in Years"  maxlength="2" autocomplete="off" required >
+                <span class="error-in" *ngIf="f.submitted && !age.valid ">Please Enter Proper Age (Only digits) </span>
               </div>
             </li>
             
@@ -44,7 +46,8 @@
                    <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="email" name="email" [(ngModel)]="chat.email"  placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
+                  <input type="email" name="email" #email="ngModel" [(ngModel)]="chat.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
+                  <span class="error-in" *ngIf="f.submitted && !email.valid ">Please Enter Proper Email ID.</span>
                 </div>
               </li>
               
@@ -54,7 +57,8 @@
                  <span class="form-required"> * </span>
               </label>
               <div class="form-input">
-                <input type="int" name="mobile_number" [(ngModel)]="chat.mobile_number" placeholder="Mobile Number" maxlength="10" autocomplete="off" required >
+                <input type="int" name="mobile_number" #mobile_number="ngModel" pattern="[0-9]{10}" [(ngModel)]="chat.mobile_number" placeholder="Mobile Number" maxlength="10" autocomplete="off" required >
+                <span class="error-in" *ngIf="f.submitted && !mobile_number.valid ">Please Enter Proper Mobile No (Only 10 digits) </span>
               </div>
             </li>
              <li>
@@ -80,7 +84,7 @@
                 </div>
               </li>
               </ul>
-          <input type="submit" (click)="chatsave()" value="Continue" >
+          <input type="submit" value="Continue" >
         </form>	
       </div>
     </div>

@@ -11,75 +11,13 @@
           <section class="main1">
             <form class="search">
 
-              <input type="text" name="q" placeholder="Search..." autocomplete="off" />
-              <ul class="results">
+              <div class="addnew-opt-ar">
+                <autocomplete [dataList]="scriptList" [setSelectedValue]="selectedValue" [searchKey]="'value'" 
+                [emptyList]="resetautocomplete" [searchKey2]="'id'" (selectedData)="onAssetSelected($event)"
+                (inputQuery)="getScripts($event)"></autocomplete>
+              </div>
 
-                <li>
-                  <a routerLink="/response">General Physician</a>
-                </li>
-                <li>
-                  <a routerLink="/response">Cardiologist
-                    <br />
-                    <!--<span>Description...</span>-->
-                  </a>
-                </li>
-                <li>
-                  <a routerLink="/response">Dentist
-                    <br />
-                    <!--<span>Description...</span>-->
-                  </a>
-                </li>
-                <li>
-                  <a routerLink="/response">Dermatologist
-                    <br />
-                    <!--<span>Description...</span>-->
-                  </a>
-                </li>
-                <li>
-                  <a routerLink="/response">Gynaecologist
-                    <br />
-                    <!--<span>Description...</span>-->
-                  </a>
-                </li>
-                <li>
-                  <a routerLink="/response">Neurologist
-                    <br />
-                    <!--<span>Description...</span>-->
-                  </a>
-                </li>
-                <li>
-                  <a routerLink="/response">Oncologist
-                    <br />
-                    <!--<span>Description...</span>-->
-                  </a>
-                </li>
-                <li>
-                  <a routerLink="/response">Opthalmologist
-                    <br />
-                    <!--<span>Description...</span>-->
-                  </a>
-                </li>
-                <li>
-                  <a routerLink="/response">ENT
-                    <br />
-                    <!--<span>Description...</span>-->
-                  </a>
-                </li>
-                <li>
-                  <a routerLink="/response">Psychiatrist
-                    <br />
-                    <!--<span>Description...</span>-->
-                  </a>
-                </li>
-                <li>
-                  <a routerLink="/response">Urologist
-                    <br />
-                    <!--<span>Description...</span>-->
-                  </a>
-                </li>
-                <!--<li><a href="index.html">Search Result #4</a></li>-->
-
-              </ul>
+             
             </form>
 
           </section>

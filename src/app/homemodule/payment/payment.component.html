@@ -38,7 +38,8 @@ Payment
                        <span class="form-required"> * </span>
                     </label>
                     <div class="form-input">
-                      <input type="email" name="email" [(ngModel)]="payment.email" placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
+                      <input type="email" name="email" #email="ngModel" [(ngModel)]="payment.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
+                      <span class="error-in" *ngIf="f.submitted && !email.valid ">Please Enter email </span>
                     </div>
                   </li>
                   
@@ -48,7 +49,8 @@ Payment
                   <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="text" name="patient_name" [(ngModel)]="payment.patient_name" placeholder="Enter Your Name" maxlength="100" autocomplete="off" required >
+                  <input type="text" name="patient_name" #patient_name="ngModel" [(ngModel)]="payment.patient_name" pattern="[a-zA-z]+" placeholder="Enter Your Name" maxlength="100" autocomplete="off" required >
+                  <span class="error-in" *ngIf="f.submitted && !patient_name.valid ">Please Enter Name </span>
                 </div>
               </li>
               <hr>
@@ -62,7 +64,8 @@ Payment
                     <span class="form-required"> * </span>
                   </label>
                   <div class="form-input">
-                    <input type="text" name="name_oncard" [(ngModel)]="payment.name_oncard"  maxlength="100" autocomplete="off" required >
+                    <input type="text" name="name_oncard" #name_oncard="ngModel" [(ngModel)]="payment.name_oncard" pattern="\w+\s{1}\w+\s{1}\w+" maxlength="100" autocomplete="off" required >
+                    <span class="error-in" *ngIf="f.submitted && !name_oncard.valid ">Please Enter Name on card </span>
                   </div>
                 </li>
                 
@@ -72,7 +75,8 @@ Payment
                    <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="int" [(ngModel)]="payment.card_number" name="card_number" placeholder="0000-0000-0000-0000" maxlength="16" autocomplete="off" required >
+                  <input type="int" [(ngModel)]="payment.card_number" name="card_number" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$" placeholder="0000-0000-0000-0000" maxlength="16" autocomplete="off" required >
+                  <span class="error-in" *ngIf="f.submitted && !card_number.valid ">Please Enter Card Number </span>
                 </div>
               </li>
               <li> 

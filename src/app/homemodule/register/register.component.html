@@ -9,7 +9,7 @@
       <p></p>
     </div>
     <div class="agile-form">
-      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && register()" novalidate>
+      <form action="http://localhost:5300/login" name="form" #f="ngForm" (ngSubmit)="f.form.valid && register()" novalidate>
         <ul class="field-list">
           <li>
             <label class="form-label">
@@ -105,7 +105,7 @@
           </li>
         </ul>
 
-        <input type="submit" value="Register">
+        <input type="submit" (click)="f.resetform()" value="Register">
       </form>
 
     </div>

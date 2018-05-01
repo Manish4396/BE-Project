@@ -124,6 +124,50 @@ Doctors Registration
   
             </div>
           </li>
+
+          <hr>
+          <div class="heading">
+            <h2>Speciality</h2>
+            <p></p>
+          </div>
+          <li>
+            <label class="form-label">
+               Choose a Speciality
+               <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <select class="form-dropdown" name="speciality1" #speciality1="ngModel" [(ngModel)]="doctor.speciality1"  required>
+                <option *ngFor="let c of speciality" [(ngValue)]="c.id">{{c.name}}</option>
+              </select>
+              <div *ngIf="f.submitted">
+                  <span class="error-in" *ngIf="f.submitted && !speciality1.valid ">Please Select Speciality </span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <label class="form-label">
+              Fees
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="int" name="fees" #age="ngModel" pattern="[0-9]{04}" [(ngModel)]="doctor.fees" placeholder="Fees in Rupees" maxlength="4"
+                autocomplete="off" required>
+                <span class="error-in" *ngIf="f.submitted && !fees.valid ">Please Enter Fees</span>
+              </div>
+           </li>
+           <li>
+            <label class="form-label">
+            Clinic Address
+              <span class="form-required"> * </span>
+            </label>
+            <div class="form-input">
+              <input type="text" name="clinicadd" #clinicadd="ngModel" [(ngModel)]="doctor.clinicadd"  placeholder="Enter Clinic Address" maxlength="200"
+                autocomplete="off" required>
+                <span class="error-in" *ngIf="f.submitted && !clinicadd.valid ">Enter Clinic Address </span>
+              </div>
+            
+          </li>
+          
           <hr>
           <div class="heading">
             <h2>Educational Qualification</h2>
@@ -204,36 +248,36 @@ Doctors Registration
                     <span class="form-sub-label">
                       <select name="time1" [(ngModel)]="doctor.time1" class="time">
                         <option>&nbsp;</option>
-                        <option value="9"> 9:00am </option>
-                        <option value="10"> 10:00am </option>
-                        <option value="11"> 11:00am </option>
-                        <option value="12"> 12:00pm </option>
-                        <option value="1"> 1:00pm </option>
-                        <option value="2"> 2:00pm </option>
-                        <option value="3"> 3:00pm </option>
-                        <option value="4"> 4:00pm </option>
-                        <option value="5"> 5:00pm </option>
-                        <option value="6"> 6:00pm </option>
-                        <option value="7"> 7:00pm </option>
-                        <option value="8"> 8:00pm </option>
+                        <option value="9:00am"> 9:00am </option>
+                        <option value="10:00am"> 10:00am </option>
+                        <option value="11:00am"> 11:00am </option>
+                        <option value="12:00pm"> 12:00pm </option>
+                        <option value="1:00pm"> 1:00pm </option>
+                        <option value="2:00pm"> 2:00pm </option>
+                        <option value="3:00pm"> 3:00pm </option>
+                        <option value="4:00pm"> 4:00pm </option>
+                        <option value="5:00pm"> 5:00pm </option>
+                        <option value="6:00pm"> 6:00pm </option>
+                        <option value="7:00pm"> 7:00pm </option>
+                        <option value="8:00pm"> 8:00pm </option>
                       </select>
                     </span>
                     <span>from</span>
                     <span class="form-sub-label">
                       <select name="time2" [(ngModel)]="doctor.time2" class="time">
                         <option>&nbsp;</option>
-                        <option value="9"> 9:00am </option>
-                        <option value="10"> 10:00am </option>
-                        <option value="11"> 11:00am </option>
-                        <option value="12"> 12:00pm </option>
-                        <option value="1"> 1:00pm </option>
-                        <option value="2"> 2:00pm </option>
-                        <option value="3"> 3:00pm </option>
-                        <option value="4"> 4:00pm </option>
-                        <option value="5"> 5:00pm </option>
-                        <option value="6"> 6:00pm </option>
-                        <option value="7"> 7:00pm </option>
-                        <option value="8"> 8:00pm </option>
+                        <option value="9:00am"> 9:00am </option>
+                        <option value="10:00am"> 10:00am </option>
+                        <option value="11:00am"> 11:00am </option>
+                        <option value="12:00pm"> 12:00pm </option>
+                        <option value="1:00pm"> 1:00pm </option>
+                        <option value="2:00pm"> 2:00pm </option>
+                        <option value="3:00pm"> 3:00pm </option>
+                        <option value="4:00pm"> 4:00pm </option>
+                        <option value="5:00pm"> 5:00pm </option>
+                        <option value="6:00pm"> 6:00pm </option>
+                        <option value="7:00pm"> 7:00pm </option>
+                        <option value="8:00pm"> 8:00pm </option>
                       </select>
                     </span>
 
@@ -246,7 +290,7 @@ Doctors Registration
                 </li>
 
 
-                <li>
+                <!--<li>
                   <h5> Timing for other days as per availability </h5>
                   <br>
                   <div class="form-input dob">
@@ -287,7 +331,7 @@ Doctors Registration
                     </span>
                     <br>
                   </div>
-                </li>
+                </li>-->
 
 
               </ul>

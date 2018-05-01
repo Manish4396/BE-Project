@@ -21,7 +21,7 @@ return this.http.post("http://localhost:4200/login",data,options)
 }
 
 private extractData(res: Response) {
-let body = res.json();
+let body = res;
 return body;
 }
 

@@ -25,8 +25,8 @@
                 <span class="form-required"> * </span>
               </label>
               <div class="form-input">
-                <input type="text" name="patient_name" #patient_name="ngModel" [(ngModel)]="chat.patient_name" pattern="[a-zA-z]+" placeholder="Enter Patients Name" maxlength="100" autocomplete="off" required >
-                <span class="error-in" *ngIf="f.submitted && !patient_name.valid ">Please Enter Name </span>
+                <input type="text" name="patient_Name" #patient_Name="ngModel" [(ngModel)]="chat.patient_Name" pattern="[a-zA-z]+" placeholder="Enter Patients Name" maxlength="100" autocomplete="off" required >
+                <span class="error-in" *ngIf="f.submitted && !patient_Name.valid ">Please Enter Name </span>
               </div>
             </li>
             <li> 

@@ -8,7 +8,10 @@ import { DloginServices } from './service/dlogin.service';
   providers:[DloginServices]
 })
 export class DloginComponent implements OnInit {
-  
+  islogin: any;
+  msg: any;
+  passeye:any;
+  inputpassword="password";
 public doctor={
   dusername:"",
   dpassword:"",
@@ -23,6 +26,17 @@ login(){
     .subscribe(res=>{
       alert("Login" + JSON.stringify(res) + res)
     })
+}
+passwordshowhide(value) {
+  if (value == "hidepass") {
+    this.passeye = !this.passeye;
+    if (this.inputpassword == "text") {
+      this.inputpassword = "password";
+    }
+    else {
+      this.inputpassword = "text";
+    }
+  }
 }
 
 

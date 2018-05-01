@@ -14,7 +14,8 @@ import { ResponseComponent } from './response/response.component';
 import { AfterloginComponent } from './afterlogin/afterlogin.component';
 import { DregistrationComponent } from './dregistration/dregistration.component';
 import { DloginComponent } from './dlogin/dlogin.component';
-
+import { DoctorchatComponent} from './doctorchat/doctorchat.component';
+import { UserchatComponent} from './userchat/userchat.component'
 
 
 
@@ -33,6 +34,9 @@ const routes:Routes=[
 {path:'afterlogin',component:AfterloginComponent},
 {path:'dregistration',component:DregistrationComponent},
 {path:'dlogin',component:DloginComponent},
+{path:'doctorchat',component:DoctorchatComponent},
+{path:'userchat',component:UserchatComponent}
+
 
 ]
 

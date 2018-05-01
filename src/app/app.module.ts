@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { HeaderModuleComponent } from './header-module/header-module.component';
 import { FooterModuleComponent } from './footer-module/footer-module.component';
 import { LoggedinHeaderModuleComponent } from './loggedin-header-module/loggedin-header-module.component';
+// import { UserchatComponent } from './homemodule/userchat/userchat.component';
+// import { DoctorchatComponent } from './homemodule/doctorchat/doctorchat.component';
 
 // import { LoginComponent } from './homemodule/login/login.component';
 
@@ -16,7 +18,9 @@ import { LoggedinHeaderModuleComponent } from './loggedin-header-module/loggedin
     // HomemoduleComponent,
     HeaderModuleComponent,
     FooterModuleComponent,
-    LoggedinHeaderModuleComponent
+    LoggedinHeaderModuleComponent,
+    // UserchatComponent,
+    // DoctorchatComponent
     // LoginComponent,
     ],
   imports: [

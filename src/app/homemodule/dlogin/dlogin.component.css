@@ -1,11 +1,11 @@
 input[type="password"] {
-    /* margin: 15px 0px; */
-    padding: 7px 10px;
-    box-sizing: border-box;
-    background-color: rgba(216, 216, 216, 0.63);
-    border: none;
-    width: 99%;
-    color: #0f0e10;
+  /* margin: 15px 0px; */
+  padding: 7px 10px;
+  box-sizing: border-box;
+  background-color: rgba(216, 216, 216, 0.63);
+  border: none;
+  width: 99%;
+  color: #0f0e10;
 }
 
 .error-in{

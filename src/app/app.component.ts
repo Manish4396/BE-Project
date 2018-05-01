@@ -9,6 +9,7 @@ import { SharedServiceService } from './SharedService/shared-service.service';
 export class AppComponent {
   currentuser: any
   login: any;
+  dlogin:any;
   title = 'app';
 
   constructor(public _sharedService: SharedServiceService) { }
@@ -25,20 +26,10 @@ export class AppComponent {
     }
   }
   onActivate($event) {
-    // if (JSON.parse(localStorage.getItem('login')) == true) {
-      // this.login = JSON.parse(localStorage.getItem('login'));
-      //  alert("onActivate" +this.login);
-    // }
-    // if (JSON.parse(localStorage.getItem('dlogin')) == true) {
-      // this.login = JSON.parse(localStorage.getItem('dlogin'));
-      //  alert("onActivate" +this.login);
-    // }
-
-    if(JSON.parse(localStorage.getItem('dlogin'))==true){
-    this.login=true;
-    }
-    else{
-      this.login=false;
-    }
+    
+      this.login = JSON.parse(localStorage.getItem('login'));
+     
+      this.dlogin = JSON.parse(localStorage.getItem('dlogin'));
+     
   }
 }

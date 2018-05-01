@@ -9,11 +9,8 @@
           <div id= "feedback"></div>
 
       </div>
-      <div *ngFor="let message of messages">
-        {{message.text}}
-      </div>
-
-      <input id= "handle" type= "text" placeholder= "Handle" />
+      
+      <input id= "handle" disabled type= "text" placeholder= "Handle" value="{{user}}"/>
 
       <input id= "message" type= "message" [(ngModel)]="message1"  placeholder= "Message"/>
 

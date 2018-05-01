@@ -15,8 +15,8 @@ export class ChatService {
   private url = 'http://localhost:5300';  
   private socket;
   
-  sendMessage(message){
-    this.socket.emit('add-message', message);    
+  sendMessage(message,handler){
+    this.socket.emit('add-message',{messagedata:message,handler:handler} );    
   }
   
   getMessages() {

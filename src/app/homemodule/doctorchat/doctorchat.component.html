@@ -9,11 +9,12 @@
           <div id= "feedback"></div>
 
       </div>
-      <div *ngFor="let message of messages">
-        {{message.text}}
-      </div>
+<!-- {{messages |json}} -->
+      <!-- <div *ngFor="let data of messages.text">
+        {{data.handler}}:{{data.messagedata}}
+      </div> -->
 
-      <input id= "handle" type= "text" placeholder= "Handle" />
+      <input id= "handle" disabled type= "text" placeholder= "{{user}}" />
 
       <input id= "message" type= "message" [(ngModel)]="message1"  placeholder= "Message"/>
 

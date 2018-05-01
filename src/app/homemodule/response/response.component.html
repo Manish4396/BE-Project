@@ -1,4 +1,6 @@
-<div class="main2" *ngFor="let data of type.data">
+
+<div *ngIf="type">
+    <div class="main2" *ngFor="let data of type.data">
     <div class="left">
         <h3>{{data.dname}}</h3>
 
@@ -16,3 +18,7 @@
     </div>
    
 </div>
+    <p></p>
+</div>
+
+</div>  

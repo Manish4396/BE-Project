@@ -1,0 +1,23 @@
+<body>
+
+  <div id= "mario-chat">
+
+      <div id= "chat-window">
+
+          <div id= "output"></div>
+
+          <div id= "feedback"></div>
+
+      </div>
+      
+      <input id= "handle" disabled type= "text" placeholder= "Handle" value="{{user}}"/>
+
+      <input id= "message" type= "message" [(ngModel)]="message1"  placeholder= "Message"/>
+
+      <button id= "send" (click)="sendMessage()"> Send </button>
+
+  </div>
+
+  <!-- <script src="/chat.js"></script> -->
+
+</body>

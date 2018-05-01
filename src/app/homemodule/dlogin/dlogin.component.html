@@ -1,6 +1,6 @@
 <div class="w3ls-banner">
     <div class="heading">
-      <h1>Login</h1>
+      <h1>Doctor's Login</h1>
     </div>
     <div class="container_1">
       <div class="heading">
@@ -28,8 +28,8 @@
                 <input type="{{inputpassword}}" name="dpassword" #dpassword="ngModel" [(ngModel)]="doctor.dpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter Password" maxlength="20" autocomplete="off" required>
               </div>
               <p class="input-icon-eye" style="cursor:pointer">
-                <img *ngIf="passeye" src="assets/images/eye-open.png" (click)="dpasswordshowhide('hidepass')" alt="" title="">
-                <img *ngIf="!passeye" src="assets/images/eye-close.png" (click)="dpasswordshowhide('hidepass')" alt="" title="">
+                <img *ngIf="passeye" src="assets/images/eye-open.png" (click)="passwordshowhide('hidepass')" alt="" title="">
+                <img *ngIf="!passeye" src="assets/images/eye-close.png" (click)="passwordshowhide('hidepass')" alt="" title="">
               </p>  
             </li>
   

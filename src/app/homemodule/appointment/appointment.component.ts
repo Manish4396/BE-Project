@@ -11,6 +11,7 @@ import { AppointmentServices } from './service/appointment.service'
 export class AppointmentComponent implements OnInit {
   public appointment = {
     patient_Name: "",
+    doctorsname:"",
     gender: "",
     mobile_number: "",
     age: "",

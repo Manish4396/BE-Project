@@ -21,6 +21,18 @@
                   <span class="error-in" *ngIf="f.submitted && !patientname.valid ">Please Enter Name </span>
                 </div>
               </li>
+
+              <li>
+                <label class="form-label"> 
+                  Doctor's Name
+                  <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                  <input type="text" name="doctorsname" #doctorsname="ngModel" [(ngModel)]="appointment.doctorsname" pattern="[ . a-zA-z]+" placeholder="Enter Doctor's Name" autocomplete="off" required >
+                  <span class="error-in" *ngIf="f.submitted && !doctorsname.valid ">Please Enter Doctor's Name </span>
+                </div>
+              </li>
+              
               <li>
                 <label class="form-label">
                    Gender
@@ -44,7 +56,7 @@
                 </div>
                 </li>
               
-              <li> 
+             <!-- <li> 
                 <label class="form-label">
                    Address
                    <span class="form-required"> * </span>
@@ -77,7 +89,7 @@
                     <label class="form-sub-label1"> Country </label>
                   </span>
                 </div>
-              </li>
+              </li>-->
               <li> 
                 <label class="form-label">
                    E-Mail Address

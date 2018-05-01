@@ -1,113 +1,118 @@
 Payment
-	<!--//banner -->
-	<div class="w3ls-banner">
-    
-    <div class="heading">
-      <h1>Payment Information</h1>
-    </div>
+<!--//banner -->
+<div class="w3ls-banner">
 
-      <div class="container_1">
-          <div class="heading">
-              <h2>Payment Method</h2>
-              <p></p>
-            </div>
-            <li>
-                <label class="form-label">
-                   Choose any one Payment Method
-                   <span class="form-required"> * </span>
-                </label>
-                <div class="form-input">
-                  <select class="form-dropdown" name="paymethod" required>
-                    <option value="">&nbsp;</option>
-                    <option value="Credit Card"> Credit Card </option>
-                    <option value="Debit Card"> Debit Card </option>
-                  </select>
-                </div>
-              <li>
-              <hr>
+  <div class="heading">
+    <h1>Payment Information</h1>
+  </div>
+
+  <div class="container_1">
+    <div class="heading">
+      <h2>Payment Method</h2>
+      <p></p>
+    </div>
+    <li>
+      <label class="form-label">
+        Choose any one Payment Method
+        <span class="form-required"> * </span>
+      </label>
+      <div class="form-input">
+        <select class="form-dropdown" name="paymethod" required>
+          <option value="">&nbsp;</option>
+          <option value="Credit Card"> Credit Card </option>
+          <option value="Debit Card"> Debit Card </option>
+        </select>
+      </div>
+      <li>
+        <hr>
         <div class="heading">
           <h2>Personal information</h2>
           <p></p>
         </div>
         <div class="agile-form">
-          <form action="/" method="post">
+          <form  #f="ngForm" (ngSubmit)="f.form.valid && paymentsave()"  novalidate >
             <ul class="field-list">
-                <li> 
-                    <label class="form-label">
-                       E-Mail
-                       <span class="form-required"> * </span>
-                    </label>
-                    <div class="form-input">
-                      <input type="email" name="email" #email="ngModel" [(ngModel)]="payment.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
-                      <span class="error-in" *ngIf="f.submitted && !email.valid ">Please Enter email </span>
-                    </div>
-                  </li>
-                  
               <li>
-                <label class="form-label"> 
-                  Full Name 
+                <label class="form-label">
+                  E-Mail
                   <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="text" name="patient_name" #patient_name="ngModel" [(ngModel)]="payment.patient_name" pattern="[a-zA-z]+" placeholder="Enter Your Name" maxlength="100" autocomplete="off" required >
+                  <input type="email" name="email" #email="ngModel" [(ngModel)]="payment.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                    placeholder="myname@example.com" maxlength="100" autocomplete="off" required>
+                  <span class="error-in" *ngIf="f.submitted && !email.valid ">Please Enter email </span>
+                </div>
+              </li>
+
+              <li>
+                <label class="form-label">
+                  Full Name
+                  <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                  <input type="text" name="patient_name" #patient_name="ngModel" [(ngModel)]="payment.patient_name" pattern="[a-zA-z]+" placeholder="Enter Your Name"
+                    maxlength="100" autocomplete="off" required>
                   <span class="error-in" *ngIf="f.submitted && !patient_name.valid ">Please Enter Name </span>
                 </div>
               </li>
               <hr>
               <div class="heading">
-              <h2>Card information</h2>
-              <p></p>
-          </div>
+                <h2>Card information</h2>
+                <p></p>
+              </div>
               <li>
-                  <label class="form-label"> 
-                    Name On Card 
-                    <span class="form-required"> * </span>
-                  </label>
-                  <div class="form-input">
-                    <input type="text" name="name_oncard" #name_oncard="ngModel" [(ngModel)]="payment.name_oncard" pattern="\w+\s{1}\w+\s{1}\w+" maxlength="100" autocomplete="off" required >
-                    <span class="error-in" *ngIf="f.submitted && !name_oncard.valid ">Please Enter Name on card </span>
-                  </div>
-                </li>
-                
-              <li> 
                 <label class="form-label">
-                   Card Number
-                   <span class="form-required"> * </span>
+                  Name On Card
+                  <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="int" [(ngModel)]="payment.card_number" name="card_number" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$" placeholder="0000-0000-0000-0000" maxlength="16" autocomplete="off" required >
+                  <input type="text" name="name_oncard" #name_oncard="ngModel" [(ngModel)]="payment.name_oncard" pattern="\w+\s{1}\w+\s{1}\w+"
+                    maxlength="100" autocomplete="off" required>
+                  <span class="error-in" *ngIf="f.submitted && !name_oncard.valid ">Please Enter Name on card </span>
+                </div>
+              </li>
+
+              <li>
+                <label class="form-label">
+                  Card Number
+                  <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                  <input type="int" [(ngModel)]="payment.card_number" name="card_number" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$"
+                    placeholder="0000-0000-0000-0000" maxlength="16" autocomplete="off" required>
                   <span class="error-in" *ngIf="f.submitted && !card_number.valid ">Please Enter Card Number </span>
                 </div>
               </li>
-              <li> 
-                  <label class="form-label">
-                     Expiration
-                     <span class="form-required"> * </span>
-                  </label>
-                  <div class="form-input1">
-                  
-                    <input type="int" [(ngModel)]="payment.expiration" name="expiration" placeholder="MM" maxlength="2" autocomplete="off" required >
-                   </div>
-                   <div class="form-input2">
-                  
-                      <input type="int" [(ngModel)]="payment.expiration1" name="expiration1" placeholder="YYYY" maxlength="4" autocomplete="off" required >
-                     </div>
-            
-                </li>
-                     
-                    <li> 
-                        <label class="form-label">
-                           CVV Number
-                           <span class="form-required"> * </span>
-                        </label>
-                        <div class="form-input">
-                          <input type="int" [(ngModel)]="payment.cvv" name="cvv" placeholder="0000" maxlength="16" autocomplete="off" required >
-                        </div>
-                      </li>
-                    
-               </ul>
-            <input type="submit" (click)="payment()" value="Submit">
-          </form>	
+              <li>
+                <label class="form-label">
+                  Expiration
+                  <span class="form-required"> * </span>
+                </label>
+                <div class="form-input1">
+
+                  <input type="int" [(ngModel)]="payment.expiration" name="expiration" placeholder="MM" maxlength="2" autocomplete="off" required>
+                </div>
+                <div class="form-input2">
+
+                  <input type="int" [(ngModel)]="payment.expiration1" name="expiration1" placeholder="YYYY" maxlength="4" autocomplete="off"
+                    required>
+                </div>
+
+              </li>
+
+              <li>
+                <label class="form-label">
+                  CVV Number
+                  <span class="form-required"> * </span>
+                </label>
+                <div class="form-input">
+                  <input type="int" [(ngModel)]="payment.cvv" name="cvv" placeholder="0000" maxlength="16" autocomplete="off" required>
+                </div>
+              </li>
+
+            </ul>
+            <input type="submit" value="Submit">
+          </form>
         </div>
-      </div>
   </div>
+</div>

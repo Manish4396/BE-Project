@@ -21,6 +21,13 @@ export class ResponseComponent implements OnInit {
       // this.request.speciality1=
       this.call(params.obj1).subscribe(res=>{
         this.type=res;
+        // if(this.type.length>1){
+        //   this.type.forEach(element => {
+            
+        //   });
+        // }else{
+
+        // }
         console.log(this.type);
       })
 

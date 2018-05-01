@@ -15,7 +15,7 @@ export class UserchatComponent implements OnInit {
  
   ngOnInit() {
     this.user=localStorage.getItem('loginuser');
-    alert(this.user)
+    //alert(this.user)
     
     this.connection = this.chatService.getMessages().subscribe(message => {
     //  msg=JSON.parse(message);
@@ -29,7 +29,7 @@ export class UserchatComponent implements OnInit {
   }
 
   sendMessage(){
-    alert(this.message1)
+   // alert(this.message1)
     this.chatService.sendMessage(this.message1,this.user);
     this.message1 = '';
   }

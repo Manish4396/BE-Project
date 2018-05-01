@@ -23,16 +23,20 @@
               </li>
 
               <li>
-                <label class="form-label"> 
-                  Doctor's Name
-                  <span class="form-required"> * </span>
+                <label class="form-label">
+                   Doctor's Name
+                   <span class="form-required"> * </span>
                 </label>
                 <div class="form-input">
-                  <input type="text" name="doctorsname" #doctorsname="ngModel" [(ngModel)]="appointment.doctorsname" pattern="[ . a-zA-z]+" placeholder="Enter Doctor's Name" autocomplete="off" required >
-                  <span class="error-in" *ngIf="f.submitted && !doctorsname.valid ">Please Enter Doctor's Name </span>
+                  <select class="form-dropdown" name="doctorsname1" #doctorsname1="ngModel" [(ngModel)]="appointment.doctorsname"  required>
+                    <option *ngFor="let c of doctorsname" [(ngValue)]="c.id">{{c.name}}</option>
+                  </select>
+                  <div *ngIf="f.submitted">
+                      <span class="error-in" *ngIf="f.submitted && !doctorsname1.valid ">Please Select Doctor's Name </span>
+                  </div>
                 </div>
               </li>
-              
+          
               <li>
                 <label class="form-label">
                    Gender

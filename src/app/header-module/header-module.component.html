@@ -49,7 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </ul>
         </div>
         <div class="header_right">
-          <ul class="forms_right">{{_sharedService.login}}
+          <ul class="forms_right">
             <!-- <li>
               <a routerLink="appoinment"> Make an Appointment</a>
             </li> -->
@@ -89,14 +89,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li>
                   <a routerLink="aboutus">About</a>
                 </li>
-                <li *ngIf="_sharedService.login">
+                <li *ngIf="_sharedService.login && !dlogin">
                   <a routerLink="appoinment">Appointment</a>
                 </li>
-                <li *ngIf="_sharedService.login">
+                <li *ngIf="_sharedService.login && !dlogin">
                   <a routerLink="departments">Departments</a>
                 </li>
-                <li *ngIf="_sharedService.login">
-                 <!-- <a routerLink="mail">Mail Us</a>-->
+                <li *ngIf="dlogin">
+                 <a routerLink="/doctorchat">Chat</a>
                 </li>
               </ul>
             </nav>

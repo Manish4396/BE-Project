@@ -9,6 +9,7 @@ import { RouterLink ,Router} from '@angular/router';
 })
 export class HomemoduleComponent implements OnInit {
   loginhome:any
+  dloginhome:any
   selectedScrip:any;
   public selectedValue:string;
   public tempScripName = "";
@@ -41,13 +42,14 @@ export class HomemoduleComponent implements OnInit {
   }
 
   get(data){
-    alert(JSON.stringify(data));
+    //alert(JSON.stringify(data));
   }
 
   ngAfterViewInit()
   {
     console.log(this._sharedService.login);
     this.loginhome=JSON.parse(localStorage.getItem('login'));
+    this.dloginhome=JSON.parse(localStorage.getItem('dlogin'));
     // this.loginhome=this._sharedService.login;
   }
 

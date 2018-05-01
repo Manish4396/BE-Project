@@ -25,7 +25,7 @@ export class PaymentComponent implements OnInit {
   }
 
   paymentsave() {
-    alert("HI")
+   // alert("HI")
     this.paymentServices.saveuser(this.payment)
       .subscribe(res => {
         // alert("Login" + JSON.stringify(res) + res)

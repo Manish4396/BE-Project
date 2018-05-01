@@ -1,5 +1,5 @@
 <!-- banner -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" class="carousel slide" data-ride="carousel" *ngIf="!dloginhome">
   <!-- Indicators -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
@@ -30,9 +30,9 @@
 <!--//banner -->
 <br>
 <br>
-<div class="chat">
+<div class="chat" *ngIf="!dloginhome && loginhome">
   <p>
-    <a href="http://localhost:5300/chat">Chat with a Doctor </a>
+    <a routerLink="/chat">Chat with a Doctor </a>
   </p>
 </div>
 <!-- about -->
@@ -83,20 +83,20 @@
   <!-- //about-bottom -->
 </div>
 <!-- emergency -->
-<div class="emergency_cases_w3ls" *ngIf="!loginhome">
+<div class="emergency_cases_w3ls" *ngIf="!dloginhome && !loginhome">
   <div class="emergency_cases_bt">
     <div class="container">
       <h2>Doctor's Area</h2>
       <div class="emergency_cases_top">
         <div class="col-md-6 emergency_cases_w3ls_left">
-          <a routerLink="dlogin">
+          <a routerLink="/dlogin">
             <h1>Doctor's
               <br>Login</h1>
           </a>
           <h6>Login to your account to check if anyone needs medical help.</h6>
         </div>
         <div class="col-md-6 emergency_cases_w3ls_right">
-          <a routerLink="dregistration">
+          <a routerLink="/dregistration">
             <h1>Doctor's Registration</h1>
           </a>
           <h6>Register yourself as a Doctor with us and provide your services to the masses.</h6>

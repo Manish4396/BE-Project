@@ -16,8 +16,8 @@ export class DoctorchatComponent implements OnInit {
   constructor(public chatService:ChatService) { }
  
   ngOnInit() {
-    this.user=localStorage.getItem('loginuser');
-    alert(this.user)
+    this.user=localStorage.getItem('dloginuser');
+   // alert(this.user)
     
     this.connection = this.chatService.getMessages().subscribe(message => {
     //  msg=JSON.parse(message);
@@ -31,7 +31,7 @@ export class DoctorchatComponent implements OnInit {
   }
 
   sendMessage(){
-    alert(this.message1)
+    //alert(this.message1)
     this.chatService.sendMessage(this.message1,this.user);
     this.message1 = '';
   }

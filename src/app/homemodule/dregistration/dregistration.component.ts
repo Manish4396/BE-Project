@@ -9,6 +9,7 @@ import { DregistrationServices } from './service/dregistration.service'
 })
 
 export class DregistrationComponent implements OnInit {
+  public f: any;
   public doctor = {
     dname: "",
     dgender: "",
@@ -19,6 +20,9 @@ export class DregistrationComponent implements OnInit {
     dpassword: "",
     drepassword: "", 
     dcity: "",
+    speciality1:"",
+    fees:"",
+    clinicadd:"",
     degree: "",
     college: "",
     yoc: "",
@@ -42,9 +46,23 @@ export class DregistrationComponent implements OnInit {
     { id:'Transgender', name: "Transgender" }
 
   ];
+
+  speciality = [
+    { id:'General Physician', name: 'General Physician' },
+    { id:'Cardiologist', name: 'Cardiologist ' },
+    { id:'Dermatologist', name: 'Dermatologist ' },
+    { id:'Gynaecologist', name: 'Gynaecologist ' },
+    { id:'Neurologist', name: 'Neurologist ' },
+    { id:'Oncologist', name: 'Oncologist ' },
+    { id:'Opthalmologist', name: 'Opthalmologist ' },
+    { id:'ENT', name: 'ENT ' },
+    { id:'Psychiatrist', name: 'Psychiatrist ' },
+    { id:'Urologist', name: 'Urologist ' },
+  ];
+
   constructor(public dregistrationServices: DregistrationServices) { }
 
-  public f : any;
+ 
 
   ngOnInit() {
   }
@@ -53,7 +71,7 @@ export class DregistrationComponent implements OnInit {
     this.dregistrationServices.savedoctor(this.doctor)
       .subscribe(res => {
         alert("Login" + JSON.stringify(res) + res)
-
+        this["f.resetForm()"];
 
       })
 

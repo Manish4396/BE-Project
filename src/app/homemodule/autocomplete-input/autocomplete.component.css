@@ -1,0 +1,47 @@
+
+.suggestions {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-top: 0px;
+  /* border-radius: 5px; */
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  opacity: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 200px;
+  z-index: 10;
+  margin-top: -0.5px;
+}
+
+.suggestions>ul li {
+  padding: 5px;
+  /* background-color: #8ac639; */
+  background-color: white;
+  width: 321px !important;
+  display: block;
+  position: relative;
+  opacity: 1;
+  z-index: 10;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.suggestions>ul li a {
+  color: #000;
+}
+
+.suggestions>ul li:hover,
+.suggestions>ul li:hover a,
+.suggestions>ul li.active:hover,
+.suggestions>ul li.active:hover a {
+  background-color: #8dc63f;
+  color: #fff !important;
+}
+
+.suggestions>ul li.active,
+.suggestions>ul li.active a {
+  background-color: #ddd;
+}
+

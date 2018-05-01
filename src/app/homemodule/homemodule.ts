@@ -16,7 +16,7 @@ import { ResponseComponent } from './response/response.component';
 import { AfterloginComponent } from './afterlogin/afterlogin.component';
 import { DregistrationComponent } from './dregistration/dregistration.component';
 import { DloginComponent } from './dlogin/dlogin.component';
-
+import { AutocompleteComponent } from './autocomplete-input/autocomplete.component';
 
 
 import { FormsModule } from '@angular/forms';
@@ -37,8 +37,10 @@ import { FormsModule } from '@angular/forms';
         AfterloginComponent,
         DregistrationComponent,
         DloginComponent,
+        AutocompleteComponent
         
     ],
+    exports:[AutocompleteComponent],
     imports: [
         CommonModule,
         routing,
